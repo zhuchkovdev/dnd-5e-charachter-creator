@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Controls.Primitives;
+using DnDLibrary;
 
 namespace DnD_Project
 {
@@ -24,21 +25,6 @@ namespace DnD_Project
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Unchecked(object sender, RoutedEventArgs e)
-        {
-            Button.IsChecked = true;
-
-        }
-
-        private void Add_Click(object sender, RoutedEventArgs e)
-        {
-            var button = new ToggleButton
-            {
-                Content = "Hello"
-            };
-            Buttons.Children.Add(button);
         }
     }
 }
