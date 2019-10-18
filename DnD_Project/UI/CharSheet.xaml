@@ -18,7 +18,7 @@
                     <ColumnDefinition Width="0.4*"/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Margin="10,10,9.8,10" FontSize="40" Content="+" RenderTransformOrigin="0.494,0.544" />
+                <Button Grid.Column="0" Margin="10,10,9.8,10" FontSize="40" Content="+" />
                 <Border Grid.Column="1" BorderBrush="DarkGray" BorderThickness="2">
                     <Grid Grid.Column="1" Margin="0.2,0,0,0" Background="Bisque" >
                         <Grid.RowDefinitions>

@@ -1,0 +1,61 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DnD_Project">
+    <ControlTemplate x:Key="GeneralButtonTemplate" TargetType="{x:Type ButtonBase}">
+        <Border x:Name="border" 
+            BorderBrush="{TemplateBinding BorderBrush}" 
+            BorderThickness="1" 
+            Background="{TemplateBinding Background}" 
+            SnapsToDevicePixels="true">
+
+            <ContentPresenter x:Name="contentPresenter" 
+                Focusable="False" 
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                Margin="{TemplateBinding Padding}" 
+                RecognizesAccessKey="True" 
+                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+    </ControlTemplate>
+
+    <Style TargetType="ButtonBase">
+        <Setter Property="Template" Value="{StaticResource GeneralButtonTemplate}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <Style TargetType="ToggleButton" BasedOn="{StaticResource {x:Type ButtonBase}}">
+        <Setter Property="Background" Value="LightBlue" />
+        <Setter Property="Foreground" Value="Black" />
+
+
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="ToggleButton.IsChecked" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" 
+                            Value="LightBlue"/>
+            </MultiTrigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False" />
+                    <Condition Property="ToggleButton.IsChecked" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background"
+                            Value="LightGray"/>
+
+            </MultiTrigger>
+
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ToggleButtonLikeRadioButtonStyle" TargetType="RadioButton" 
+        BasedOn="{StaticResource {x:Type ToggleButton}}">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+    </Style>
+</ResourceDictionary>

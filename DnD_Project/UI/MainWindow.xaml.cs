@@ -13,8 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Controls.Primitives;
-using DnDLibrary;
-
 namespace DnD_Project
 {
     /// <summary>
@@ -25,6 +23,19 @@ namespace DnD_Project
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            var Tab = (RadioButton)this.TryFindResource("TabButton");
+            Tab.Content = "Name";
+            CharTabs.Children.Add(Tab);
+        }
+
+        private void Tab_Checked(object sender, RoutedEventArgs e)
+        {
+            UserControl CharacterPanel = new CharSheet();
+            CharPanel.Content = CharacterPanel;
         }
     }
 }
