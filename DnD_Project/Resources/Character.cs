@@ -27,7 +27,7 @@ namespace DnD_Project
     {
         Dictionary<Property, string> Props;
         public Stats BaseStats { get; }
-        public Stats BonusStats { get; }
+        public Stats ActualStats { get; }
         public SavingThrows SavingThrows { get; private set; }
         public HitPoints HitPoints { get; }
         public DeathSaves DeathSaves { get; private set; }
@@ -46,9 +46,59 @@ namespace DnD_Project
             }
 
         }
-        public void SetRace(string race)
+        public void SetRace(string charRace)
         {
-
+            switch(charRace)
+            {
+                case "Human":
+                    break;
+                case "Dwarf":
+                    break;
+                case "Elf":
+                    break;
+                case "Halfling":
+                    break;
+                case "Dragonborn":
+                    break;
+                case "Gnome":
+                    break;
+                case "Half-Elf":
+                    break;
+                case "Half-Ork":
+                    break;
+                case "Tiefling":
+                    break;
+            }
+        }
+        public void SetClass(string charClass)
+        {
+            switch (charClass)
+            {
+                case "Baarbarian":
+                    break;
+                case "Bard":
+                    break;
+                case "Cleric":
+                    break;
+                case "Druid":
+                    break;
+                case "Fighter":
+                    break;
+                case "Monk":
+                    break;
+                case "Paladin":
+                    break;
+                case "Ranger":
+                    break;
+                case "Rogue":
+                    break;
+                case "Sorcerer":
+                    break;
+                case "Warlock":
+                    break;
+                case "Wisard":
+                    break;
+            }
         }
 
     }

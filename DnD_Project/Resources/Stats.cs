@@ -15,15 +15,6 @@ namespace DnD_Project
         internal int Wisdom { get; private set; }
         internal int Charisma { get; private set; }
 
-        internal Stats()
-        {
-            Strength = 0;
-            Dexterity = 0;
-            Constitution = 0;
-            Inteligence = 0;
-            Wisdom = 0;
-            Charisma = 0;
-        }
 
         internal void Generate()
         {

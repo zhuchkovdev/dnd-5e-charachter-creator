@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Controls.Primitives;
+using DnD_Project.UI;
+
 namespace DnD_Project
 {
     /// <summary>
@@ -23,6 +25,7 @@ namespace DnD_Project
         public MainWindow()
         {
             InitializeComponent();
+            Authorization();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -36,6 +39,21 @@ namespace DnD_Project
         {
             UserControl CharacterPanel = new CharSheet();
             CharPanel.Content = CharacterPanel;
+        }
+
+        public void Authorization()
+        {
+            var authWindow = new AuthWindow();
+            this.Hide();
+            if (authWindow.ShowDialog() == true)
+            {
+                UsernameTextBlock.Text = authWindow.CurrentUser.Login;
+                this.Show();
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }

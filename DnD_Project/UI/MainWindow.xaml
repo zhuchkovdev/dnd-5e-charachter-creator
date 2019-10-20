@@ -26,7 +26,7 @@
                 <ContentControl Content="" />
 
                 <Border Background="AliceBlue" BorderBrush="Gainsboro" BorderThickness="1"/>
-                <TextBlock Grid.Row="0" Text="Username" TextAlignment="Center" Margin="10" />
+                <TextBlock x:Name="UsernameTextBlock" Grid.Row="0" TextAlignment="Center" Margin="10" />
                 <ScrollViewer Grid.Row="1">
                     <Grid>
                         <Grid.RowDefinitions>

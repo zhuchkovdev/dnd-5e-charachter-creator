@@ -58,9 +58,14 @@
     <Compile Include="Resources\DBController.cs" />
     <Compile Include="Resources\DeathSaves.cs" />
     <Compile Include="Resources\HitPoints.cs" />
+    <Compile Include="Resources\Race.cs" />
     <Compile Include="Resources\SavingThrows.cs" />
     <Compile Include="Resources\Stats.cs" />
     <Compile Include="Resources\Trait.cs" />
+    <Page Include="UI\AuthWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\CharSheet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -69,9 +74,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Resources\User.cs" />
     <Compile Include="UI\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\AuthWindow.xaml.cs">
+      <DependentUpon>AuthWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\CharSheet.xaml.cs">
       <DependentUpon>CharSheet.xaml</DependentUpon>
