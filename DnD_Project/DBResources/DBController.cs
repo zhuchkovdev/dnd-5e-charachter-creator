@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using DnD_Project.Resources;
 
-namespace DnD_Project
+namespace DnD_Project.DBResources
 {
     class DBController
     {
@@ -15,22 +14,6 @@ namespace DnD_Project
         public DBController(string connectionString)
         {
             this.connectionString = connectionString;
-        }
-        public void CreateCharacter()
-        {
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                var transaction = connection.BeginTransaction();
-                var command = connection.CreateCommand();
-                command.Transaction = transaction;
-
-                command.CommandText = "INSERT INTO Chars (Name) VALUES (NULL)";
-                //var param = new SqlParameter("@name", null);
-                //command.Parameters.Add(param);
-                command.ExecuteNonQuery();
-                transaction.Commit();
-            }     
         }
 
         public void CreateUser(User user)
@@ -93,6 +76,21 @@ namespace DnD_Project
 
             }
         }
-        
+
+        public void CreateBlankCharacter()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var transaction = connection.BeginTransaction();
+                var command = connection.CreateCommand();
+                command.Transaction = transaction;
+
+                command.CommandText = "INSERT INTO Chars (Name) VALUES (NULL)";
+                command.ExecuteNonQuery();
+                transaction.Commit();
+            }
+        }
+
     }
 }

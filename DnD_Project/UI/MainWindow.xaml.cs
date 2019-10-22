@@ -43,8 +43,9 @@ namespace DnD_Project
 
         public void Authorization()
         {
-            var authWindow = new AuthWindow();
             this.Hide();
+            var authWindow = new AuthWindow();
+
             if (authWindow.ShowDialog() == true)
             {
                 UsernameTextBlock.Text = authWindow.CurrentUser.Login;

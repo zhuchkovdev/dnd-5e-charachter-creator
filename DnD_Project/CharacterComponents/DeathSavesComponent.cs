@@ -4,29 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DnD_Project
+namespace DnD_Project.CharacterComponents
 {
-    class DeathSaves
+    class DeathSavesComponent
     {
         internal int Successes { get; private set; }
         internal int Fails { get; private set; }
 
-        public DeathSaves()
-        {
-            Successes = 0;
-            Fails = 0;
-        }
-
         public void AddSuccess()
         {
-            if(Successes < 2)
+            if (Successes <= 2)
             {
                 Successes += 1;
             }
         }
         public void AddFail()
         {
-            if (Fails < 2)
+            if (Fails <= 2)
             {
                 Fails += 1;
             }

@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using DnD_Project.Resources;
+using DnD_Project.DBResources;
 
 namespace DnD_Project.UI
 {
@@ -61,7 +61,7 @@ namespace DnD_Project.UI
 
             if (dbController.UserExists(CurrentUser))
             {
-                ErrorText.Text = "Такая учетная запись уже зсуществует";
+                ErrorText.Text = "Такая учетная запись уже существует";
             }
             else
             {

@@ -55,13 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Resources\DBController.cs" />
-    <Compile Include="Resources\DeathSaves.cs" />
-    <Compile Include="Resources\HitPoints.cs" />
-    <Compile Include="Resources\Race.cs" />
-    <Compile Include="Resources\SavingThrows.cs" />
-    <Compile Include="Resources\Stats.cs" />
-    <Compile Include="Resources\Trait.cs" />
+    <Compile Include="CharacterComponents\ClassComponent.cs" />
+    <Compile Include="CharacterComponents\DeathSavesComponent.cs" />
+    <Compile Include="CharacterComponents\HitPointsComponent.cs" />
+    <Compile Include="CharacterComponents\SavingThrowsComponent.cs" />
+    <Compile Include="CharacterComponents\SecondaryStatsComponent.cs" />
+    <Compile Include="DBResources\DBController.cs" />
+    <Compile Include="CharacterComponents\LevelComponent.cs" />
+    <Compile Include="CharacterComponents\RaceComponent.cs" />
+    <Compile Include="CharacterComponents\PrimaryStatsComponent.cs" />
     <Page Include="UI\AuthWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -74,7 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Resources\User.cs" />
+    <Compile Include="DBResources\User.cs" />
     <Compile Include="UI\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -85,7 +87,7 @@
     <Compile Include="UI\CharSheet.xaml.cs">
       <DependentUpon>CharSheet.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Character.cs" />
+    <Compile Include="Character\Character.cs" />
     <Compile Include="UI\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
