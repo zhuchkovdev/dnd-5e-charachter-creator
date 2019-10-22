@@ -18,7 +18,7 @@
                     <ColumnDefinition Width="0.3*"/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0"  FontSize="40" MaxHeight="100" MaxWidth="150" Content="+"  />
+                <Button Grid.Column="0"  FontSize="40" MaxHeight="100" MaxWidth="150" Content="☺"  />
                 <Border Grid.Column="1" BorderBrush="DarkGray" BorderThickness="2">
                     <Grid Grid.Column="1" Margin="0.2,0,0,0" Background="Bisque" >
                         <Grid.RowDefinitions>
@@ -49,7 +49,14 @@
                                 <RowDefinition Height="0,2*"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBox Grid.Row="0" MaxWidth="60" MaxHeight="35"/>
+                            <Grid Grid.Row="0" Background="White" Width="80" Margin="1 5 1 5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="0.7*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Text="Уровень" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                            </Grid>
                             <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -66,12 +73,13 @@
             </Grid>
         </GroupBox>
 
-        <Grid Grid.ColumnSpan="2" Margin="0,150,0,0" Grid.RowSpan="2">
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.3*"/>
-                <ColumnDefinition />
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <GroupBox Grid.Row="1" Grid.Column="0" Header="Характеристики">
+            <GroupBox Grid.Row="1" Grid.Column="0" Header="Характеристики" Background="Honeydew">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -83,10 +91,216 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" Content="☺" VerticalAlignment="Top" HorizontalAlignment="Right" MaxHeight="20" MinHeight="5"/>
+                    <Grid Grid.Column="0" Grid.Row="0" Background="White" Width="80" Margin="1 5 1 5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.7*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Text="Сила" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0" Background="White" Width="80" Margin="1 5 1 5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.7*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Text="Ловкость" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1" Background="White" Width="80" Margin="1 5 1 5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.7*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Text="Телосложение" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="1" Background="White" Width="80" Margin="1 5 1 5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.7*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Text="Интеллект" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2" Background="White" Width="80" Margin="1 5 1 5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.7*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Text="Мудрость" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2" Background="White" Width="80" Margin="1 5 1 5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.7*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Text="Харизма" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    </Grid>
+                    <Border Grid.Row="3" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="2"/>
+                    <Grid  Grid.Row="3" Grid.ColumnSpan="2" Background="White" Width="80" Margin="1 5 1 5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.7*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Text="Восприятие" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    </Grid>
+                
                 </Grid>
             </GroupBox>
+            <GroupBox Grid.Row="1" Grid.Column="1" Header="Спасброски" Background="Honeydew">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0"  Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Доступно  "/>
+                            <TextBlock Background="White" Text=" 0 "/>
+                        </StackPanel>
+                        <TextBlock/>
+                        <RadioButton GroupName="Сила" Content="Сила"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Ловкость" Content="Ловкость"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Телосложение" Content="Телосложение"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Интеллект" Content="Интеллект"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Мудрость" Content="Мудрость"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Харизма" Content="Харизма"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <TextBlock Text="Бонус" HorizontalAlignment="Left"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" "  MaxWidth="30"/>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            <GroupBox Grid.Row="1" Grid.Column="2" Header="Навыки" Background="Honeydew">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0"  Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Доступно  "/>
+                            <TextBlock Background="White" Text=" 0 "/>
+                        </StackPanel>
+                        <TextBlock/>
+                        <RadioButton GroupName="Акробатика" Content="Акробатика"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Атлетика" Content="Атлетика"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Магия" Content="Магия"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Обман" Content="Обман"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="История" Content="История"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Проницательность" Content="Проницательность"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <TextBlock Text="Бонус" HorizontalAlignment="Center"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2"  Orientation="Vertical">
+                        <TextBlock/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Запугивание" Content="Запугивание"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Расследование" Content="Расследование"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Медицина" Content="Медицина"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Природа" Content="Природа"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Восприятие" Content="Восприятие"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Выступление" Content="Выступление"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3" Orientation="Vertical">
+                        <TextBlock Text="Бонус" HorizontalAlignment="Center"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4"  Orientation="Vertical">
+                        <TextBlock/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Убеждение" Content="Убеждение"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Религия" Content="Религия"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Ловкость рук" Content="Ловкость рук"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Скрытность" Content="Скрытность"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Выживание" Content="Выживание"/>
+                        <TextBlock/>
+                        <RadioButton GroupName="Общение с животными" Content="Общение с животными"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="5" Orientation="Vertical">
+                        <TextBlock Text="Бонус" HorizontalAlignment="Center"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                        <TextBlock/>
+                        <TextBlock Background="White" Text=" " MaxWidth="30"/>
+                    </StackPanel>
+                </Grid>
+
+            </GroupBox>
         </Grid>
-        <Grid Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,0,-0.4">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
