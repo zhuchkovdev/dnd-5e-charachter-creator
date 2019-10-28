@@ -82,13 +82,9 @@ namespace DnD_Project.DBResources
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var transaction = connection.BeginTransaction();
-                var command = connection.CreateCommand();
-                command.Transaction = transaction;
-
-                command.CommandText = "INSERT INTO Chars (Name) VALUES (NULL)";
+                var sqlExpression = "INSERT INTO Chars (Name) VALUES (NULL)";
+                var command = new SqlCommand(sqlExpression, connection);
                 command.ExecuteNonQuery();
-                transaction.Commit();
             }
         }
 
