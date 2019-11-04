@@ -8,6 +8,11 @@ namespace DnD_Project.CharacterComponents
 {
     class IDComponent
     {
-        internal int ID { get; set; }
+        internal int ID { private get; set; }
+
+        public override string ToString()
+        {
+            return ID.ToString();
+        }
     }
 }

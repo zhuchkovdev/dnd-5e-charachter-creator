@@ -94,6 +94,91 @@ namespace DnD_Project.CharacterComponents
             StatsChanged?.Invoke(this);
         }
 
+        public void UpdateStats(RaceEnum race)
+        {
+            if ((race == RaceEnum.HillDwarf) || (race == RaceEnum.MountainDwarf))
+            {
+                Constitution += 2;
+                if (race == RaceEnum.HillDwarf)
+                {
+                    Strength += 2;
+                }
+                if (race == RaceEnum.MountainDwarf)
+                {
+                    Wisdom += 1;
+                }
+            }
+            if ((race == RaceEnum.HighElf) || (race == RaceEnum.WoodElf) || (race == RaceEnum.DarkElf))
+            {
+                Dexterity += 2;
+                if(race == RaceEnum.HighElf)
+                {
+                    Intelligence += 1;
+                }
+                if(race == RaceEnum.WoodElf)
+                {
+                    Wisdom += 1;
+                }
+                if(race == RaceEnum.DarkElf)
+                {
+                    Charisma += 1;
+                }
+            }
+            if ((race == RaceEnum.LightfootHalfling) || (race == RaceEnum.StoutHalfling))
+            {
+                Dexterity += 2;
+                if(race == RaceEnum.LightfootHalfling)
+                {
+                    Charisma += 1;
+                }
+                if(race == RaceEnum.StoutHalfling)
+                {
+                    Constitution += 1;
+                }
+            }
+            if (race == RaceEnum.Human)
+            {
+                Strength += 1;
+                Dexterity += 1;
+                Constitution += 1;
+                Intelligence += 1;
+                Wisdom += 1;
+                Charisma += 1;
+            }
+            if (race == RaceEnum.Dragonborn)
+            {
+                Strength += 2;
+                Charisma += 1;
+            }
+            if ((race == RaceEnum.ForestGnome) || (race == RaceEnum.RockGnome))
+            {
+                Intelligence += 2;
+                if(race == RaceEnum.ForestGnome)
+                {
+                    Dexterity += 1;
+                }
+                if(race == RaceEnum.RockGnome)
+                {
+                    Constitution += 1;
+                }
+            }
+            if (race == RaceEnum.HalfElf)
+            {
+                Charisma += 2;
+                //Choice stat
+            }
+            if (race == RaceEnum.HalfOrk)
+            {
+                Strength += 2;
+                Constitution += 1;
+            }
+            if (race == RaceEnum.Tiefling)
+            {
+                Intelligence += 1;
+                Charisma += 2;
+            }
+        }
+
         public delegate void PrimaryStatsEventHandler(PrimaryStatsComponent newStats);
         public event PrimaryStatsEventHandler StatsChanged;
     }

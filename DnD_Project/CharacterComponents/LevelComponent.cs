@@ -8,10 +8,18 @@ namespace DnD_Project.CharacterComponents
 {
     class LevelComponent
     {
-        internal int Level { get; private set; }
+        private int Level { get; set; }
         public LevelComponent(int startingLvl)
         {
             Level = startingLvl;
+        }
+        public override string ToString()
+        {
+            return Level.ToString();
+        }
+        public int GetLevel()
+        {
+            return Level;
         }
         public delegate void LevelEventHandler(int level);
         public event LevelEventHandler LevelChanged;

@@ -63,6 +63,7 @@
     <Compile Include="CharacterComponents\NameComponent.cs" />
     <Compile Include="CharacterComponents\SavingThrowsComponent.cs" />
     <Compile Include="CharacterComponents\SecondaryStatsComponent.cs" />
+    <Compile Include="CharacterComponents\SkillsComponent.cs" />
     <Compile Include="DBResources\DBController.cs" />
     <Compile Include="CharacterComponents\LevelComponent.cs" />
     <Compile Include="CharacterComponents\RaceComponent.cs" />

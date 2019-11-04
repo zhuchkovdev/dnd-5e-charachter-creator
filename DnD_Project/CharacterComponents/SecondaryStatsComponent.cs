@@ -25,7 +25,7 @@ namespace DnD_Project.CharacterComponents
 
         //10 + PerceptionBonus(Skills)
         //event in Skills
-        //internal void CalculatePerception(Dictionary<StatsEnum, int> stats)
+        //internal void CalculatePerception(SkillsComponent skills)
         //{
         //}
 
@@ -34,10 +34,31 @@ namespace DnD_Project.CharacterComponents
             Initiative = stats.GetStatModifier(StatsEnum.Dexterity);
         }
 
-        //Event from race + bonus from monk class
-        internal void CalculateSpeed()
+        internal void CalculateSpeed(RaceEnum race)
         {
-
+            if ((race == RaceEnum.HillDwarf) ||
+                (race == RaceEnum.MountainDwarf) ||
+                (race == RaceEnum.LightfootHalfling) ||
+                (race == RaceEnum.StoutHalfling) ||
+                (race == RaceEnum.ForestGnome) || 
+                (race == RaceEnum.RockGnome))
+            {
+                Speed = 25;
+            }
+            if ((race == RaceEnum.HighElf) ||
+                (race == RaceEnum.DarkElf) ||
+                (race == RaceEnum.Human) ||
+                (race == RaceEnum.Dragonborn) ||
+                (race == RaceEnum.HalfElf) ||
+                (race == RaceEnum.HalfOrk) ||
+                (race == RaceEnum.Tiefling))
+            {
+                Speed = 30;
+            }
+            if ((race == RaceEnum.WoodElf))
+            {
+                Speed = 35;
+            }
         }
 
         //Inventory and armor will be added soon(c)

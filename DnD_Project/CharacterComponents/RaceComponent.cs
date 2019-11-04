@@ -89,6 +89,14 @@ namespace DnD_Project.CharacterComponents
                     break;
             }
         }
+        public override string ToString()
+        {
+            if (String.IsNullOrEmpty(Race))
+            {
+                return base.ToString();
+            }
+            return Race;
+        }
 
         public delegate void RaceEventHandler(RaceEnum race);
         public event RaceEventHandler RaceChanged;

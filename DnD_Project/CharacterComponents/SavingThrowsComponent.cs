@@ -11,6 +11,14 @@ namespace DnD_Project.CharacterComponents
         //вынести ли enum?
         private Dictionary<StatsEnum, bool> _savingThrows;
 
+        public SavingThrowsComponent()
+        {
+            _savingThrows = new Dictionary<StatsEnum, bool>(6);
+            for(var i = StatsEnum.Strength; i < StatsEnum.Charisma; i++)
+            {
+                _savingThrows[i] = false;
+            }
+        }
         internal void SetSavingThrow(StatsEnum stat, bool value)
         {
             _savingThrows[stat] = value;

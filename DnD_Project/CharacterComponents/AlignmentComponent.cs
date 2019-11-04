@@ -20,7 +20,7 @@ namespace DnD_Project.CharacterComponents
     }
     class AlignmentComponent
     {
-        internal string Alignment { get; private set; }
+        private string Alignment { get; set; }
         internal void SetAlignment(AlignmentEnum alignment)
         {
             switch(alignment)
@@ -53,6 +53,14 @@ namespace DnD_Project.CharacterComponents
                     Alignment = "Chaotic evil";
                     break;
             }
+        }
+        public override string ToString()
+        {
+            if (String.IsNullOrEmpty(Alignment))
+            {
+                return base.ToString();
+            }
+            return Alignment;
         }
     }
 }
