@@ -46,5 +46,9 @@ namespace DnD_Project.CharacterComponents
             MaximumHP = (int)HitDice + stats.GetStatModifier(StatsEnum.Constitution);
             CurrentHP = MaximumHP;
         }
+        internal void CalculateHP(ClassEnum @class)
+        {
+            MaximumHP += 1;
+        }
     }
 }

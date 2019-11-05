@@ -23,7 +23,7 @@ namespace DnD_Project.CharacterComponents
     }
     class ClassComponent
     {
-        internal string Class { get; private set; }
+        private string Class { get; set; }
 
         internal void SetClass(ClassEnum @class)
         {
@@ -78,6 +78,14 @@ namespace DnD_Project.CharacterComponents
                     ClassChanged?.Invoke(ClassEnum.Wisard);
                     break;
             }
+        }
+        public override string ToString()
+        {
+            if (String.IsNullOrEmpty(Class))
+            {
+                return base.ToString();
+            }
+            return Class;
         }
 
         public delegate void ClassEventHandler(ClassEnum @class);
