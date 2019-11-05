@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using DnD_Project.DBResources;
+using DnD_Project.DAL;
 
 namespace DnD_Project.UI
 {

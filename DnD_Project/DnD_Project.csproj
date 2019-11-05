@@ -83,7 +83,7 @@
     <Compile Include="CharacterComponents\SavingThrowsComponent.cs" />
     <Compile Include="CharacterComponents\SecondaryStatsComponent.cs" />
     <Compile Include="CharacterComponents\SkillsComponent.cs" />
-    <Compile Include="DBResources\DBController.cs" />
+    <Compile Include="DAL\DBController.cs" />
     <Compile Include="CharacterComponents\LevelComponent.cs" />
     <Compile Include="CharacterComponents\RaceComponent.cs" />
     <Compile Include="CharacterComponents\PrimaryStatsComponent.cs" />
@@ -99,7 +99,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="DBResources\User.cs" />
+    <Compile Include="DAL\User.cs" />
     <Compile Include="UI\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -139,6 +139,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="DnD_DB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

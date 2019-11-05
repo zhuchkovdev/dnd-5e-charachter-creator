@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace DnD_Project.DBResources
+namespace DnD_Project.DAL
 {
     public class User
     {
