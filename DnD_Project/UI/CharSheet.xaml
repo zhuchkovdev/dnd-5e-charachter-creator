@@ -9,8 +9,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="1.7*"/>
+            <RowDefinition  Height="0.7*"/>
+            <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
         <GroupBox Grid.Row="0" Header="Основная информация" Grid.ColumnSpan="2" Margin="0,0,0,0.4">
             <Grid>
@@ -18,7 +19,7 @@
                     <ColumnDefinition Width="0.3*"/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0"  FontSize="40" MaxHeight="100" MaxWidth="150" Content="☺"  />
+                <Button Grid.Column="0"  FontSize="40" MaxHeight="150" MaxWidth="200" Content="☺"  />
                 <Border Grid.Column="1" BorderBrush="DarkGray" BorderThickness="2">
                     <Grid Grid.Column="1" Margin="0.2,0,0,0" Background="Bisque" >
                         <Grid.RowDefinitions>
@@ -307,6 +308,105 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-        </Grid>        
+            <GroupBox Grid.Column="0"  Background="Lavender" Header="">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Grid.Column="0">
+                        <Grid Background="White" MaxHeight="50" MinHeight="50" MinWidth="50" MaxWidth="50" VerticalAlignment="Top" Margin="10">
+                            <TextBlock Text="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock Text="Класс брони" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <Grid Background="White" MaxHeight="50" MinHeight="50" MaxWidth="50" MinWidth="50" VerticalAlignment="Top" Margin="10">
+                            <TextBlock Text="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock Text="Инициатива" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <Grid Background="White" MaxHeight="50" MinHeight="50" MaxWidth="50" MinWidth="50" VerticalAlignment="Top" Margin="10">
+                            <TextBlock Text="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock Text="Скорость" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Grid.Column="1" Background="Lavender" Header="Очки здоровья">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Grid.Column="0">
+                        <Grid Background="White" MaxHeight="50" MinHeight="50" MaxWidth="50" MinWidth="50" VerticalAlignment="Top" Margin="10">
+                            <TextBlock Text="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock Text="Текущие" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <Grid Background="White" MaxHeight="50" MinHeight="50" MaxWidth="50" MinWidth="50" VerticalAlignment="Top" Margin="10">
+                            <TextBlock Text="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock Text="Максимальные" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <Grid Background="White" MaxHeight="50" MinHeight="50" MaxWidth="50" MinWidth="50" VerticalAlignment="Top" Margin="10">
+                            <TextBlock Text="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock Text="Временные" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Grid.Column="2" Background="Lavender" Header="Кубы здоровья">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Grid.Column="0">
+                        <Grid Background="White" MaxHeight="50" MinHeight="50" MaxWidth="50" MinWidth="50" VerticalAlignment="Top" Margin="10">
+                            <TextBlock Text="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock Text="Текущие" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" >
+                        <Grid Background="White" MaxHeight="50" MinHeight="50" MaxWidth="50" MinWidth="50" VerticalAlignment="Top" Margin="10">
+                            <TextBlock Text="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock Text="Максимальные" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Grid.Column="3" Header="Спасброски от смерти" Background="Lavender">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Vertical" Margin="10">
+                        <Grid MinHeight="40" MinWidth="50" HorizontalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <RadioButton GroupName="1"/>
+                                <TextBlock Text="   "/>
+                                <RadioButton GroupName="2"/>
+                            </StackPanel>
+                            <RadioButton Grid.Row="1" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock Text="Успех" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10">
+                        <Grid MinHeight="40" MinWidth="50" HorizontalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <RadioButton GroupName="3"/>
+                                <TextBlock Text="   "/>
+                                <RadioButton GroupName="4"/>
+                            </StackPanel>
+                            <RadioButton Grid.Row="1" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock Text="Провал" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+        </Grid>
     </Grid>
 </UserControl>

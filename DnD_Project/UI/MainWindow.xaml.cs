@@ -25,7 +25,7 @@ namespace DnD_Project
         public MainWindow()
         {
             InitializeComponent();
-            Authorization();
+            //Authorization();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
