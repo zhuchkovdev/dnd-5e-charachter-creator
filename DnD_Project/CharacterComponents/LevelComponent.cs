@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnD_Project.CharacterComponents
 {
-    class LevelComponent
+    public class LevelComponent
     {
         private int Level { get; set; }
         public LevelComponent(int startingLvl)

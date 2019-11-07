@@ -27,7 +27,7 @@ namespace DnD_Project.CharacterComponents
         Stealth,
         Survival
     }
-    class SkillsComponent
+    public class SkillsComponent
     {
         private Dictionary<SkillsEnum, bool> _skills;
 

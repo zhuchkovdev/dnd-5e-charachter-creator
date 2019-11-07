@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnD_Project.CharacterComponents
 {
-    class DeathSavesComponent
+    public class DeathSavesComponent
     {
         internal int Successes { get; private set; }
         internal int Fails { get; private set; }

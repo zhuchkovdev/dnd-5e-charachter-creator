@@ -91,6 +91,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\CharacterNameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\CharSheet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,6 +110,9 @@
     </Compile>
     <Compile Include="UI\AuthWindow.xaml.cs">
       <DependentUpon>AuthWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CharacterNameWindow.xaml.cs">
+      <DependentUpon>CharacterNameWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\CharSheet.xaml.cs">
       <DependentUpon>CharSheet.xaml</DependentUpon>

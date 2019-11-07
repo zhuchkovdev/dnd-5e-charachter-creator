@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Controls.Primitives;
 using DnD_Project.UI;
+using DnD_Project.DAL;
+using DnD_Project.CharacterModule;
 
 namespace DnD_Project
 {
@@ -22,33 +24,67 @@ namespace DnD_Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        DBController db;
+        User currentUser;
+        List<int> characterIDs;
+        Character currentCharacter;
+
         public MainWindow()
         {
             InitializeComponent();
-            //Authorization();
+            db = new DBController(@"Data Source =D:\Projects\DnD_Project\DnD_Project\DnD_DB.db");
+            Authorization();
+
+            characterIDs = db.GetCharactersList(currentUser);
+
+            foreach(var characterID in characterIDs)
+            {
+                var Tab = (RadioButton)this.TryFindResource("TabButton");
+                var charName = db.GetCharacterName(characterID);
+                Tab.Content = charName;
+                CharTabs.Children.Add(Tab);
+            }
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            var Tab = (RadioButton)this.TryFindResource("TabButton");
-            Tab.Content = "Name";
-            CharTabs.Children.Add(Tab);
+            var nameWindow = new CharacterNameWindow();
+            if (nameWindow.ShowDialog() == true)
+            {
+                var Tab = (RadioButton)this.TryFindResource("TabButton");
+                Tab.Content = nameWindow.CharacterName;
+                CharTabs.Children.Add(Tab);
+            }
+            int newCharacterID;
+            db.CreateBlankCharacter(currentUser, nameWindow.CharacterName, out newCharacterID);
+            characterIDs.Add(newCharacterID);
         }
 
         private void Tab_Checked(object sender, RoutedEventArgs e)
         {
-            UserControl CharacterPanel = new CharSheet();
+            int currentCharID = 0;
+            for(int i = 0; i < CharTabs.Children.Count; i++)
+            {
+                if(sender == (RadioButton)CharTabs.Children[i])
+                {
+                    currentCharID = characterIDs[i];
+                }
+            }
+            currentCharacter = db.GetCharacter(currentCharID);
+            UserControl CharacterPanel = new CharSheet(currentCharacter);
             CharPanel.Content = CharacterPanel;
         }
 
         public void Authorization()
         {
             this.Hide();
-            var authWindow = new AuthWindow();
+            var authWindow = new AuthWindow(db);
 
             if (authWindow.ShowDialog() == true)
             {
                 UsernameTextBlock.Text = authWindow.CurrentUser.Login;
+                currentUser = authWindow.CurrentUser;
+
                 this.Show();
             }
             else

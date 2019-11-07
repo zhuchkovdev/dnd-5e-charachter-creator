@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace DnD_Project.CharacterComponents
 {
-    class SavingThrowsComponent
+    public class SavingThrowsComponent
     {
-        //вынести ли enum?
         private Dictionary<StatsEnum, bool> _savingThrows;
 
         public SavingThrowsComponent()

@@ -20,13 +20,13 @@ namespace DnD_Project.UI
     /// </summary>
     public partial class AuthWindow : Window
     {
-        private DBController dbController;
+        private DBController db;
 
         public User CurrentUser { get; private set; }
-        public AuthWindow()
+        public AuthWindow(DBController db)
         {
             InitializeComponent();
-            dbController = new DBController(@"Data Source =.\SQLEXPRESS;Initial Catalog=dndDB; Integrated Security=True");
+            this.db = db;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -38,7 +38,7 @@ namespace DnD_Project.UI
                 Login = UsernameBox.Text
             };
 
-            CurrentUser.ID = dbController.GetUserID(CurrentUser);
+            CurrentUser.ID = db.GetUserID(CurrentUser);
 
             if (CurrentUser.ID.HasValue)
             {
@@ -59,13 +59,13 @@ namespace DnD_Project.UI
                 Login = UsernameBox.Text
             };
 
-            if (dbController.UserExists(CurrentUser))
+            if (db.UserExists(CurrentUser))
             {
                 ErrorText.Text = "Такая учетная запись уже существует";
             }
             else
             {
-                dbController.CreateUser(CurrentUser);
+                db.CreateUser(CurrentUser);
                 this.DialogResult = true;
             }
             

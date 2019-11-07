@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnD_Project.CharacterComponents
 {
-    class NameComponent
+    public class NameComponent
     {
         private string Name { get; set; }
 

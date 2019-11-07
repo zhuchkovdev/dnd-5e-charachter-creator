@@ -17,7 +17,7 @@ namespace DnD_Project.CharacterComponents
         D20 = 20,
         D100 = 100
     }
-    class HitPointsComponent
+    public class HitPointsComponent
     {
         private int BaseHP { get; set; }
         internal int MaximumHP { get; private set; }

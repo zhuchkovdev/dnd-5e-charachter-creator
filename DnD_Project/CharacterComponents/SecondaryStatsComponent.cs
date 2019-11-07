@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnD_Project.CharacterComponents
 {
-    class SecondaryStatsComponent
+    public class SecondaryStatsComponent
     {
         internal int ProficiencyBonus { get; private set; }
         internal int Perception { get; private set; }

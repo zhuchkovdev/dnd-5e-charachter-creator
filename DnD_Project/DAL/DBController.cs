@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SQLite;
+using DnD_Project.CharacterModule;
 
 namespace DnD_Project.DAL
 {
-    class DBController
+    public class DBController
     {
         string connectionString;
         public DBController(string connectionString)
@@ -49,7 +50,9 @@ namespace DnD_Project.DAL
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    return reader.GetInt32(0);
+                    int userID = reader.GetInt32(0);
+                    reader.Close();
+                    return userID;
                 }
                 else return null;
 
@@ -79,31 +82,97 @@ namespace DnD_Project.DAL
             }
         }
 
-        public void CreateBlankCharacter(User user, out int charID)
+        public void CreateBlankCharacter(User user, string characterName, out int charID)
         {
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                var sqlExpression = "INSERT INTO Characters (Name) VALUES (NULL)";
-                var command = new SQLiteCommand(sqlExpression, connection);
+                var transaction = connection.BeginTransaction();
+                var command = connection.CreateCommand();
+                command.Transaction = transaction;
+
+                command.CommandText = String.Format("INSERT INTO Characters (Name) VALUES ('{0}')", characterName);
                 command.ExecuteNonQuery();
 
-                sqlExpression = "SELECT * FROM Characters WHERE Name=NULL";
-                command = new SQLiteCommand(sqlExpression, connection);
+                command.CommandText = "SELECT MAX(ID) FROM Characters AS MaxID";
                 var reader = command.ExecuteReader();
                 reader.Read();
                 charID = reader.GetInt32(0);
+                reader.Close();
 
-                sqlExpression = "INSERT INTO UserChars (UserID, CharID) VALUES (@user_id, @char_id)";
-                var loginParam = new SQLiteParameter("@user_id", user.ID);
-                var passParam = new SQLiteParameter("@char_id", charID);
-                command.Parameters.Add(loginParam);
-                command.Parameters.Add(passParam);
-
-                command = new SQLiteCommand(sqlExpression, connection);
+                command.CommandText = "INSERT INTO UserChars (UserID, CharID) VALUES (@userId, @charId)";
+                command.Parameters.AddWithValue("@userId", user.ID);
+                command.Parameters.AddWithValue("@charId", charID);
                 command.ExecuteNonQuery();
+
+                transaction.Commit();
             }
         }
 
+        public List<int> GetCharactersList(User user)
+        {
+            var charIDs = new List<int>();
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                var sqlExpression = "SELECT * FROM UserChars WHERE UserID=@user_id";
+                var userParam = new SQLiteParameter("@user_id", user.ID);
+                var command = new SQLiteCommand(sqlExpression, connection);
+                command.Parameters.Add(userParam);
+
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        charIDs.Add(reader.GetInt32(1));
+                    }
+                }
+                reader.Close();
+
+                return charIDs;
+            }
+        }
+
+        public string GetCharacterName(int charID)
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                var sqlExpression = "SELECT Name FROM Characters WHERE ID=@id";
+                var command = new SQLiteCommand(sqlExpression, connection);
+                var idParam = new SQLiteParameter("@id", charID);
+                command.Parameters.Add(idParam);
+
+                var reader = command.ExecuteReader();
+                reader.Read();
+                string name = reader.GetString(0);
+                reader.Close();
+                return name;
+            }
+        }
+
+        public Character GetCharacter(int charID)
+        {
+            var character = new Character();
+            character.ID.SetID(charID);
+
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                var sqlExpression = "SELECT * FROM Characters WHERE ID=@id";
+                var command = new SQLiteCommand(sqlExpression, connection);
+                command.Parameters.AddWithValue("@id", charID);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                    character.Name.SetName(reader["name"].ToString());
+                    reader.Close();
+                }
+            }
+
+            return character;
+        }
     }
 }

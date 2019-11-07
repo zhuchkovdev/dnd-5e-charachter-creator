@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnD_Project.CharacterComponents
 {
-    enum ClassEnum
+    public enum ClassEnum
     {
         Barbarian,
         Bard,
@@ -21,7 +21,7 @@ namespace DnD_Project.CharacterComponents
         Warlock,
         Wisard
     }
-    class ClassComponent
+    public class ClassComponent
     {
         private string Class { get; set; }
 

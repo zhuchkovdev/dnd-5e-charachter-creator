@@ -18,7 +18,7 @@ namespace DnD_Project.CharacterComponents
         NeutralEvil,
         ChaoticEvil
     }
-    class AlignmentComponent
+    public class AlignmentComponent
     {
         private string Alignment { get; set; }
         internal void SetAlignment(AlignmentEnum alignment)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnD_Project.CharacterComponents
 {
-    enum RaceEnum
+    public enum RaceEnum
     {
         HillDwarf,
         MountainDwarf,
@@ -23,7 +23,7 @@ namespace DnD_Project.CharacterComponents
         HalfOrk, 
         Tiefling
     }
-    class RaceComponent
+    public class RaceComponent
     {
         internal string Race { get; private set; }
 

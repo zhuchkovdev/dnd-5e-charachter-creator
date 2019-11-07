@@ -10,22 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DnD_Project.CharacterModule;
 
-namespace DnD_Project
+namespace DnD_Project.UI
 {
     /// <summary>
-    /// Логика взаимодействия для CharSheet.xaml
+    /// Interaction logic for CharacterNameWindow.xaml
     /// </summary>
-    public partial class CharSheet : UserControl
+    public partial class CharacterNameWindow : Window
     {
-        private Character _character;
-        public CharSheet(Character character)
+        public string CharacterName { get; private set; }
+        public CharacterNameWindow()
         {
             InitializeComponent();
-            CharacterName.Text = character.Name.ToString();
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            CharacterName = NameTextBox.Text;
+            this.DialogResult = true;
         }
     }
 }

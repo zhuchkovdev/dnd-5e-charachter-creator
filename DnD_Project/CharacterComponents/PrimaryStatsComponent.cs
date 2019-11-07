@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnD_Project.CharacterComponents
 {
-    enum StatsEnum
+    public enum StatsEnum
     {
         Strength,
         Dexterity,
@@ -15,7 +15,7 @@ namespace DnD_Project.CharacterComponents
         Wisdom,
         Charisma
     }
-    class PrimaryStatsComponent
+    public class PrimaryStatsComponent
     {
         private Dictionary<StatsEnum, int> Stats { get; set; }
         private void SetStat(StatsEnum stat, int value)

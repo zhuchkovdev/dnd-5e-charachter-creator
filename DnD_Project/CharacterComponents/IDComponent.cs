@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace DnD_Project.CharacterComponents
 {
-    class IDComponent
+    public class IDComponent
     {
-        internal int ID { private get; set; }
+        private int ID { get; set; }
 
+        public void SetID(int id)
+        {
+            ID = id;
+        }
         public override string ToString()
         {
             return ID.ToString();
