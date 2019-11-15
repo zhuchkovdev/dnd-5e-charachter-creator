@@ -91,7 +91,9 @@ namespace DnD_Project.DAL
                 var command = connection.CreateCommand();
                 command.Transaction = transaction;
 
-                command.CommandText = String.Format("INSERT INTO Characters (Name) VALUES ('{0}')", characterName);
+                command.CommandText = String.Format("INSERT INTO Characters (Name, Class, Race, Level, Alignment, " +
+                    "Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma)" +
+                    " VALUES ('{0}', '', '', '1', '', '0', '0', '0', '0', '0', '0')", characterName);
                 command.ExecuteNonQuery();
 
                 command.CommandText = "SELECT MAX(ID) FROM Characters AS MaxID";
@@ -168,11 +170,45 @@ namespace DnD_Project.DAL
                 {
                     reader.Read();
                     character.Name.SetName(reader["name"].ToString());
+                    character.Class.SetClass(reader["class"].ToString());
+                    character.Race.SetRace(reader["race"].ToString());
+                    character.Level.SetLevel(Convert.ToInt32(reader["level"]));
+                    character.Alignment.SetAlignment(reader["alignment"].ToString());
+                    character.PrimaryStats.Strength = Convert.ToInt32(reader["strength"]);
+                    character.PrimaryStats.Dexterity = Convert.ToInt32(reader["dexterity"]);
+                    character.PrimaryStats.Constitution = Convert.ToInt32(reader["constitution"]);
+                    character.PrimaryStats.Intelligence = Convert.ToInt32(reader["intelligence"]);
+                    character.PrimaryStats.Wisdom= Convert.ToInt32(reader["wisdom"]);
+                    character.PrimaryStats.Charisma = Convert.ToInt32(reader["charisma"]);
                     reader.Close();
                 }
             }
 
             return character;
+        }
+
+        public List<Profile> GetProfiles()
+        {
+            var proflies = new List<Profile>();
+
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                var sqlExpression = "SELECT * FROM Users";
+                var command = new SQLiteCommand(sqlExpression, connection);
+
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        proflies.Add(new Profile { ID = reader.GetInt32(0), Name = reader.GetString(1) });
+                    }
+                }
+                reader.Close();
+
+                return proflies;
+            }
         }
     }
 }

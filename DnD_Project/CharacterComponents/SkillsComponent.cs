@@ -31,12 +31,21 @@ namespace DnD_Project.CharacterComponents
     {
         private Dictionary<SkillsEnum, bool> _skills;
 
+        //DeleteRandomLater
         public SkillsComponent()
         {
+            var rand = new Random();
             _skills = new Dictionary<SkillsEnum, bool>(18);
-            for(var i = SkillsEnum.Acrobatics; i < SkillsEnum.Survival; i++)
+            for(var i = SkillsEnum.Acrobatics; i <= SkillsEnum.Survival; i++)
             {
-                _skills[i] = false;
+                if(rand.Next(0,2) == 0)
+                {
+                    _skills[i] = false;
+                }
+                else
+                {
+                    _skills[i] = true;
+                }
             }
         }
         internal void SetSkill(SkillsEnum skill, bool value)

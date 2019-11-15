@@ -18,6 +18,14 @@ namespace DnD_Project.CharacterComponents
     public class PrimaryStatsComponent
     {
         private Dictionary<StatsEnum, int> Stats { get; set; }
+        public PrimaryStatsComponent()
+        {
+            Stats = new Dictionary<StatsEnum, int>();
+            for (var i = StatsEnum.Strength; i <= StatsEnum.Charisma; i++)
+            {
+                Stats.Add(i, 0);
+            }
+        }
         private void SetStat(StatsEnum stat, int value)
         {
             if (value < 1)
@@ -74,9 +82,9 @@ namespace DnD_Project.CharacterComponents
 
         internal void Generate()
         {
+            var rand = new Random();
             int GenStat()
             {
-                var rand = new Random();
                 int[] throws = new int[4];
                 for (int j = 0; j < 4; j++)
                 {
@@ -86,7 +94,7 @@ namespace DnD_Project.CharacterComponents
                 return (throws[1] + throws[2] + throws[3]);
             }
 
-            for (StatsEnum i = StatsEnum.Strength; i <= StatsEnum.Wisdom; i++)
+            for (StatsEnum i = StatsEnum.Strength; i <= StatsEnum.Charisma; i++)
             {
                 Stats[i] = GenStat();
             }

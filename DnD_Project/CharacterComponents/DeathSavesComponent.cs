@@ -11,6 +11,13 @@ namespace DnD_Project.CharacterComponents
         internal int Successes { get; private set; }
         internal int Fails { get; private set; }
 
+        //DeleteLater
+        public DeathSavesComponent()
+        {
+            var rand = new Random();
+            Successes = rand.Next(0, 3);
+            Fails = rand.Next(0, 3);
+        }
         public void AddSuccess()
         {
             if (Successes <= 2)

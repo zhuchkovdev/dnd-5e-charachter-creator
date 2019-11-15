@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace DnD_Project.CharacterComponents
         NeutralEvil,
         ChaoticEvil
     }
+
     public class AlignmentComponent
     {
         private string Alignment { get; set; }
@@ -53,6 +55,11 @@ namespace DnD_Project.CharacterComponents
                     Alignment = "Chaotic evil";
                     break;
             }
+        }
+        //Delete later
+        internal void SetAlignment(string alignment)
+        {
+            Alignment = alignment;
         }
         public override string ToString()
         {

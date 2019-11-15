@@ -79,6 +79,12 @@ namespace DnD_Project.CharacterComponents
                     break;
             }
         }
+        //Delete later
+        public void SetClass(string @class)
+        {
+            Class = @class;
+        }
+
         public override string ToString()
         {
             if (String.IsNullOrEmpty(Class))

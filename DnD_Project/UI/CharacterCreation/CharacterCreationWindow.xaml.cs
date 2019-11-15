@@ -10,22 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DnD_Project.CharacterModule;
+using DnD_Project.UI.CharacterCreation;
 
-namespace DnD_Project
+namespace DnD_Project.UI
 {
     /// <summary>
-    /// Логика взаимодействия для CharSheet.xaml
+    /// Interaction logic for CharacterCreationWindow.xaml
     /// </summary>
-    public partial class CharSheet : UserControl
+    public partial class CharacterCreationWindow : Window
     {
-        private Character _character;
-        public CharSheet(Character character)
+        Character character;
+        public CharacterCreationWindow()
         {
             InitializeComponent();
-            CharacterName.Text = character.Name.ToString();
+
+            Content.Content = new RaceChoice();
+        }
+
+        private void ContinueButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

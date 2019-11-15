@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DnD_Project.UI"
         mc:Ignorable="d"
-        Title="Character name" Height="200" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Создание персонажа" Height="200" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Enter a character name" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="0" Text="Введите имя персонажа" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
         <TextBox Grid.Row="1" x:Name="NameTextBox" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100"/>
-        <Button Grid.Row="2" x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="5" Click="SubmitButton_Click"/>
+        <Button Grid.Row="2" x:Name="SubmitButton" Content="Продолжить" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="5" Click="SubmitButton_Click"/>
     </Grid>
 </Window>

@@ -14,6 +14,12 @@ namespace DnD_Project.CharacterComponents
         internal int Speed { get; private set; }
         internal int ArmorClass { get; private set; }
 
+        //DeleteLater
+        public SecondaryStatsComponent()
+        {
+            Perception = 10;
+        }
+
         internal void CalculateProficiencyBonus(int level)
         {
             if(level <= 4) { ProficiencyBonus = 2; }

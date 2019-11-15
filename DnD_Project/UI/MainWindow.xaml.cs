@@ -37,13 +37,7 @@ namespace DnD_Project
 
             characterIDs = db.GetCharactersList(currentUser);
 
-            foreach(var characterID in characterIDs)
-            {
-                var Tab = (RadioButton)this.TryFindResource("TabButton");
-                var charName = db.GetCharacterName(characterID);
-                Tab.Content = charName;
-                CharTabs.Children.Add(Tab);
-            }
+            DisplayTabs();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -51,13 +45,17 @@ namespace DnD_Project
             var nameWindow = new CharacterNameWindow();
             if (nameWindow.ShowDialog() == true)
             {
-                var Tab = (RadioButton)this.TryFindResource("TabButton");
-                Tab.Content = nameWindow.CharacterName;
-                CharTabs.Children.Add(Tab);
+                //var Tab = (RadioButton)this.TryFindResource("TabButton");
+                //Tab.Content = nameWindow.CharacterName;
+                //CharTabs.Children.Add(Tab);
+
+                this.Hide();
+                var creationWindow = new CharacterCreationWindow();
+                creationWindow.ShowDialog();
             }
-            int newCharacterID;
-            db.CreateBlankCharacter(currentUser, nameWindow.CharacterName, out newCharacterID);
-            characterIDs.Add(newCharacterID);
+            //int newCharacterID;
+            //db.CreateBlankCharacter(currentUser, nameWindow.CharacterName, out newCharacterID);
+            //characterIDs.Add(newCharacterID);
         }
 
         private void Tab_Checked(object sender, RoutedEventArgs e)
@@ -90,6 +88,18 @@ namespace DnD_Project
             else
             {
                 this.Close();
+            }
+        }
+
+        
+        void DisplayTabs()
+        {
+            foreach (var characterID in characterIDs)
+            {
+                var Tab = (RadioButton)this.TryFindResource("TabButton");
+                var charName = db.GetCharacterName(characterID);
+                Tab.Content = charName;
+                CharTabs.Children.Add(Tab);
             }
         }
     }

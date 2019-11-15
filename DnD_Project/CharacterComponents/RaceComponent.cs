@@ -89,6 +89,12 @@ namespace DnD_Project.CharacterComponents
                     break;
             }
         }
+        //Delete later
+        internal void SetRace(string race)
+        {
+            Race = race;
+        }
+
         public override string ToString()
         {
             if (String.IsNullOrEmpty(Race))

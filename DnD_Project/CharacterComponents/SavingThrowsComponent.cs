@@ -10,12 +10,23 @@ namespace DnD_Project.CharacterComponents
     {
         private Dictionary<StatsEnum, bool> _savingThrows;
 
+
+        //DeleteRandomLater
         public SavingThrowsComponent()
         {
+            var rand = new Random();
+
             _savingThrows = new Dictionary<StatsEnum, bool>(6);
-            for(var i = StatsEnum.Strength; i < StatsEnum.Charisma; i++)
+            for(var i = StatsEnum.Strength; i <= StatsEnum.Charisma; i++)
             {
-                _savingThrows[i] = false;
+                if (rand.Next(0, 2) == 0)
+                {
+                    _savingThrows[i] = false;
+                }
+                else
+                {
+                    _savingThrows[i] = true;
+                }
             }
         }
         internal void SetSavingThrow(StatsEnum stat, bool value)

@@ -13,6 +13,11 @@ namespace DnD_Project.CharacterComponents
         {
             Level = startingLvl;
         }
+        //Delete later
+        public void SetLevel(int level)
+        {
+            Level = level;
+        }
         public override string ToString()
         {
             return Level.ToString();

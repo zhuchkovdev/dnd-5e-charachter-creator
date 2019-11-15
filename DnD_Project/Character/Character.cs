@@ -18,6 +18,7 @@ namespace DnD_Project.CharacterModule
         public SavingThrowsComponent SavingThrows { get; }
         public DeathSavesComponent DeathSaves { get; }
         public AlignmentComponent Alignment { get; }
+        public SkillsComponent Skills { get; }
 
         public Character()
         {
@@ -32,6 +33,7 @@ namespace DnD_Project.CharacterModule
             SavingThrows = new SavingThrowsComponent();
             DeathSaves = new DeathSavesComponent();
             Alignment = new AlignmentComponent();
+            Skills = new SkillsComponent();
 
             //Add Race and Class EventHandlers
             PrimaryStats.StatsChanged += SecondaryStats.CalculateInitiative;

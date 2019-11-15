@@ -87,15 +87,35 @@
     <Compile Include="CharacterComponents\LevelComponent.cs" />
     <Compile Include="CharacterComponents\RaceComponent.cs" />
     <Compile Include="CharacterComponents\PrimaryStatsComponent.cs" />
-    <Page Include="UI\AuthWindow.xaml">
+    <Compile Include="DAL\Profile.cs" />
+    <Compile Include="UI\Profiles\ProfilesWin.xaml.cs">
+      <DependentUpon>ProfilesWin.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UI\CharacterCreation\RaceChoice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\CharacterNameWindow.xaml">
+    <Page Include="UI\CharacterCreation\ConfirmRaceWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\CharSheet.xaml">
+    <Page Include="UI\CharacterCreation\Races\HumanUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Profiles\AuthWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CharacterCreation\CharacterCreationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CharacterCreation\CharacterNameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CharacterSheet\CharSheet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,17 +124,30 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="DAL\User.cs" />
+    <Compile Include="Enums\RaceEnum.cs" />
     <Compile Include="UI\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UI\AuthWindow.xaml.cs">
+    <Compile Include="UI\CharacterCreation\RaceChoice.xaml.cs">
+      <DependentUpon>RaceChoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CharacterCreation\ConfirmRaceWin.xaml.cs">
+      <DependentUpon>ConfirmRaceWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CharacterCreation\Races\HumanUC.xaml.cs">
+      <DependentUpon>HumanUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Profiles\AuthWindow.xaml.cs">
       <DependentUpon>AuthWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\CharacterNameWindow.xaml.cs">
+    <Compile Include="UI\CharacterCreation\CharacterCreationWindow.xaml.cs">
+      <DependentUpon>CharacterCreationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CharacterCreation\CharacterNameWindow.xaml.cs">
       <DependentUpon>CharacterNameWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\CharSheet.xaml.cs">
+    <Compile Include="UI\CharacterSheet\CharSheet.xaml.cs">
       <DependentUpon>CharSheet.xaml</DependentUpon>
     </Compile>
     <Compile Include="Character\Character.cs" />
@@ -122,6 +155,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\Profiles\ProfilesWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\ResDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
