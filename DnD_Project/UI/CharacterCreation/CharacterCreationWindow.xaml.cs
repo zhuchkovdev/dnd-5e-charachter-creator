@@ -21,17 +21,36 @@ namespace DnD_Project.UI
     /// </summary>
     public partial class CharacterCreationWindow : Window
     {
-        Character character;
+        public Character character;
         public CharacterCreationWindow()
         {
             InitializeComponent();
-
-            Content.Content = new RaceChoice();
+            character = new Character();
+            ChooseRace();
         }
 
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ChooseRace()
+        {
+            RaceChoice raceChoice = new RaceChoice();
+            raceChoice.RaceSelected += ChooseClass;
+            CreationStage.Content = raceChoice;
+        }
+
+        private void ChooseClass()
+        {
+            ClassChoice classChoice = new ClassChoice();
+            classChoice.ClassSelected += ChooseAbilities;
+            CreationStage.Content = classChoice;
+        }
+        private void ChooseAbilities()
+        {
+            AbilitiesChoice abilitiesChoice = new AbilitiesChoice();
+            CreationStage.Content = abilitiesChoice;
         }
     }
 }

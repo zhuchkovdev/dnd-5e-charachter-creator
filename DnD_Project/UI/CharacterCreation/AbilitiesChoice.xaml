@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="DnD_Project.UI.CharacterCreation.AbilitiesChoice"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DnD_Project.UI.CharacterCreation"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000" Background="White">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" >
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Grid.Row" Value="1"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="IsEditable" Value="False"/>
+            <Setter Property="Padding" Value="20"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Grid.Row" Value="2"/>
+            <Setter Property="Margin" Value="30 10"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Grid.Row" Value="4"/>
+            <Setter Property="Margin" Value="30 10" />
+            <Setter Property="BorderBrush" Value="LightBlue"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="6" Text="Распределите характеристики" FontSize="40" FontWeight="Bold"/>
+        <TextBlock Grid.Column="0" Text="Сила"/>
+            <TextBlock Grid.Column="1" Text="Ловкость"/>
+            <TextBlock Grid.Column="2" Text="Телосложение"/>
+            <TextBlock Grid.Column="3" Text="Интеллект"/>
+            <TextBlock Grid.Column="4" Text="Мудрость"/>
+            <TextBlock Grid.Column="5" Text="Харизма"/>
+            <Border Grid.Column="0">
+                 <TextBlock MinWidth="100" MinHeight="30" FontSize="40" HorizontalAlignment="Center"
+                       Name="StrDrop" AllowDrop="True" Drop="StrDrop_Drop"/>
+            </Border>
+            <Border Grid.Column="1">
+                <TextBlock MinWidth="100" MinHeight="30" FontSize="40" HorizontalAlignment="Center"
+                       Name="DexDrop" AllowDrop="True" Drop="DexDrop_Drop"/>
+            </Border>
+            <Border Grid.Column="2">
+                <TextBlock MinWidth="100" MinHeight="30" FontSize="40" HorizontalAlignment="Center"
+                       Name="ConDrop" AllowDrop="True" Drop="ConDrop_Drop"/>
+            </Border>
+            <Border Grid.Column="3">
+                <TextBlock MinWidth="100" MinHeight="30" FontSize="40" HorizontalAlignment="Center"
+                       Name="IntDrop" AllowDrop="True" Drop="IntDrop_Drop"/>
+            </Border>
+            <Border Grid.Column="4">
+                <TextBlock MinWidth="100" MinHeight="30" FontSize="40" HorizontalAlignment="Center"
+                       Name="WisDrop" AllowDrop="True" Drop="WisDrop_Drop"/>
+            </Border>
+            <Border Grid.Column="5">
+                <TextBlock MinWidth="100" MinHeight="30" FontSize="40" HorizontalAlignment="Center"
+                       Name="ChaDrop" AllowDrop="True" Drop="ChaDrop_Drop"/>
+        </Border>
+        <Label Grid.Column="0" Name="Eight" MouseDown="Stat_MouseDown">8</Label>
+        <Label Grid.Column="1" Name="Ten" MouseDown="Stat_MouseDown">10</Label>
+        <Label Grid.Column="2" Name="Twelve" MouseDown="Stat_MouseDown">12</Label>
+        <Label Grid.Column="3" Name="Thirteen" MouseDown="Stat_MouseDown">13</Label>
+        <Label Grid.Column="4" Name="Fourteen" MouseDown="Stat_MouseDown">14</Label>
+        <Label Grid.Column="5" Name="Fifteen" MouseDown="Stat_MouseDown">15</Label>
+        <Button Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" x:Name="ResetButton" Content="Сбросить характеристики" FontSize="25" Click="ResetButton_Click"/>
+    </Grid>
+</UserControl>

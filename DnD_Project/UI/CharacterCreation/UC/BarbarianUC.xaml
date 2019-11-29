@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="DnD_Project.UI.CharacterCreation.UC.BarbarianUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DnD_Project.UI.CharacterCreation.UC"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1000" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.4*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="ClassName" Text="Варвар" FontSize="40" Margin="10 10 0 0" FontWeight="Bold" />
+        <TextBlock x:Name="ClassDescription" Grid.Column="0" Grid.Row="1" Text="Описание" FontSize="20" TextWrapping="Wrap"/>
+        <Image x:Name="ClassImage" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Margin="0 10 0 0" Source="D:\Projects\DnD_Project\DnD_Project\HumanPortrait.jpg"/>
+        <TextBlock Grid.Row="2" Text="Классовые бонусы:" FontSize="30" />
+        <TextBlock x:Name="ClassBonuses" Grid.Row="3" Grid.Column="0" Text="Example" TextWrapping="Wrap" FontSize="25"/>
+    </Grid>
+</UserControl>

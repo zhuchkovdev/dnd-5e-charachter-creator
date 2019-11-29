@@ -11,7 +11,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
-        <UserControl x:Name="Content" Grid.Row="0" />
+        <UserControl x:Name="CreationStage" Grid.Row="0" />
         <Button x:Name="ContinueButton" Grid.Row="1" Content="Продолжить" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 5 0" Click="ContinueButton_Click" IsEnabled="False" />
     </Grid>
 </Window>

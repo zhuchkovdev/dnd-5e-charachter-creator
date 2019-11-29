@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DnD_Project.Enums;
+using DnD_Project.UI.CharacterCreation.Races;
 
 namespace DnD_Project.UI.CharacterCreation
 {
@@ -26,12 +27,18 @@ namespace DnD_Project.UI.CharacterCreation
             InitializeComponent();
         }
 
+        public delegate void ChoiceHanldler();
+        public event ChoiceHanldler RaceSelected;
+
         private void HumanButton_Click(object sender, RoutedEventArgs e)
         {
-            var confirmWin = new ConfirmRaceWin(Race.Human);
+            UserControl humanUC = new HumanUC(Race.Human);
+            var confirmWin = new ConfirmWin(humanUC);
             if(confirmWin.ShowDialog() == true)
             {
-                this.
+                var parentWindow = (CharacterCreationWindow)Window.GetWindow(this);
+                parentWindow.character.Race.SetRace(CharacterComponents.RaceEnum.Human);
+                RaceSelected?.Invoke();
             }
         }
 

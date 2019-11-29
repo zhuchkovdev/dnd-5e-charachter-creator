@@ -51,7 +51,14 @@ namespace DnD_Project
 
                 this.Hide();
                 var creationWindow = new CharacterCreationWindow();
-                creationWindow.ShowDialog();
+                if(creationWindow.ShowDialog() == true)
+                {
+
+                }   
+                else
+                {
+                    this.Close();
+                }
             }
             //int newCharacterID;
             //db.CreateBlankCharacter(currentUser, nameWindow.CharacterName, out newCharacterID);

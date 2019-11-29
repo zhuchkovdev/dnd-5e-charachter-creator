@@ -187,28 +187,6 @@ namespace DnD_Project.DAL
             return character;
         }
 
-        public List<Profile> GetProfiles()
-        {
-            var proflies = new List<Profile>();
-
-            using (var connection = new SQLiteConnection(connectionString))
-            {
-                connection.Open();
-                var sqlExpression = "SELECT * FROM Users";
-                var command = new SQLiteCommand(sqlExpression, connection);
-
-                var reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        proflies.Add(new Profile { ID = reader.GetInt32(0), Name = reader.GetString(1) });
-                    }
-                }
-                reader.Close();
-
-                return proflies;
-            }
-        }
+        
     }
 }

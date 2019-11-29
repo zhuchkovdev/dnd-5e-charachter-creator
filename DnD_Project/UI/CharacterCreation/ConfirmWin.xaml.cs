@@ -11,22 +11,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using DnD_Project.Enums;
-using DnD_Project.UI.CharacterCreation.Races;
 
-namespace DnD_Project.UI
+namespace DnD_Project.UI.CharacterCreation
 {
     /// <summary>
-    /// Interaction logic for ConfirmRace.xaml
+    /// Interaction logic for ConfirmWin.xaml
     /// </summary>
-    public partial class ConfirmRaceWin : Window
+    public partial class ConfirmWin : Window
     {
-        public ConfirmRaceWin(Race race)
+        public ConfirmWin(UserControl userControl)
         {
             InitializeComponent();
-            Content.Content = new HumanUC(race);
+            Content.Content = userControl;
         }
-
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
