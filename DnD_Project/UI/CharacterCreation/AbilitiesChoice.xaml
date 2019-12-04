@@ -10,7 +10,7 @@
         <Style TargetType="TextBlock" >
             <Setter Property="FontSize" Value="20" />
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Grid.Row" Value="1"/>
         </Style>
@@ -94,5 +94,6 @@
         <Label Grid.Column="4" Name="Fourteen" MouseDown="Stat_MouseDown">14</Label>
         <Label Grid.Column="5" Name="Fifteen" MouseDown="Stat_MouseDown">15</Label>
         <Button Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" x:Name="ResetButton" Content="Сбросить характеристики" FontSize="25" Click="ResetButton_Click"/>
+        <Button Grid.Column="5" Grid.Row="7" x:Name="ContinueButton" Content="Продолжить" FontSize="25" Click="ContinueButton_Click" IsEnabled="False"/>
     </Grid>
 </UserControl>

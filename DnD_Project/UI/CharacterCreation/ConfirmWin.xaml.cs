@@ -19,10 +19,11 @@ namespace DnD_Project.UI.CharacterCreation
     /// </summary>
     public partial class ConfirmWin : Window
     {
+
         public ConfirmWin(UserControl userControl)
         {
             InitializeComponent();
-            Content.Content = userControl;
+            UC.Content = userControl;
         }
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {

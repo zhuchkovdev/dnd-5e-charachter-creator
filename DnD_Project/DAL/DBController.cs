@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.SqlClient;
+using System.Text.Json;
 using System.Data.SQLite;
 using DnD_Project.CharacterModule;
+
 
 namespace DnD_Project.DAL
 {
@@ -91,9 +92,7 @@ namespace DnD_Project.DAL
                 var command = connection.CreateCommand();
                 command.Transaction = transaction;
 
-                command.CommandText = String.Format("INSERT INTO Characters (Name, Class, Race, Level, Alignment, " +
-                    "Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma)" +
-                    " VALUES ('{0}', '', '', '1', '', '0', '0', '0', '0', '0', '0')", characterName);
+                command.CommandText = String.Format("INSERT INTO Characters (Name) VALUES ('{0}')", characterName);
                 command.ExecuteNonQuery();
 
                 command.CommandText = "SELECT MAX(ID) FROM Characters AS MaxID";
@@ -156,8 +155,7 @@ namespace DnD_Project.DAL
 
         public Character GetCharacter(int charID)
         {
-            var character = new Character();
-            character.ID.SetID(charID);
+            string jsonData;
 
             using (var connection = new SQLiteConnection(connectionString))
             {
@@ -169,24 +167,32 @@ namespace DnD_Project.DAL
                 using (var reader = command.ExecuteReader())
                 {
                     reader.Read();
-                    character.Name.SetName(reader["name"].ToString());
-                    character.Class.SetClass(reader["class"].ToString());
-                    character.Race.SetRace(reader["race"].ToString());
-                    character.Level.SetLevel(Convert.ToInt32(reader["level"]));
-                    character.Alignment.SetAlignment(reader["alignment"].ToString());
-                    character.PrimaryStats.Strength = Convert.ToInt32(reader["strength"]);
-                    character.PrimaryStats.Dexterity = Convert.ToInt32(reader["dexterity"]);
-                    character.PrimaryStats.Constitution = Convert.ToInt32(reader["constitution"]);
-                    character.PrimaryStats.Intelligence = Convert.ToInt32(reader["intelligence"]);
-                    character.PrimaryStats.Wisdom= Convert.ToInt32(reader["wisdom"]);
-                    character.PrimaryStats.Charisma = Convert.ToInt32(reader["charisma"]);
+                    jsonData = Convert.ToString(reader["CharacterData"]);
                     reader.Close();
                 }
             }
 
+            CharacterData restoredData = JsonSerializer.Deserialize<CharacterData>(jsonData);
+
+            var character = new Character(restoredData);
+            character.ID = charID;
+
             return character;
         }
 
-        
+        public void SaveCharacter(CharacterData data)
+        {
+            string jsonData = JsonSerializer.Serialize<CharacterData>(data);
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                var sqlExpression = String.Format("UPDATE Characters SET CharacterData = '{0}' WHERE ID = @id", jsonData);
+                var command = new SQLiteCommand(sqlExpression, connection);
+                command.Parameters.AddWithValue("@id", data.ID);
+                command.ExecuteNonQuery();
+            }
+        }
+
+
     }
 }

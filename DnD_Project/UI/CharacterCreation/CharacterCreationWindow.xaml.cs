@@ -29,11 +29,6 @@ namespace DnD_Project.UI
             ChooseRace();
         }
 
-        private void ContinueButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ChooseRace()
         {
             RaceChoice raceChoice = new RaceChoice();
@@ -50,7 +45,13 @@ namespace DnD_Project.UI
         private void ChooseAbilities()
         {
             AbilitiesChoice abilitiesChoice = new AbilitiesChoice();
+            abilitiesChoice.StatsSelected += FinishCreation;
             CreationStage.Content = abilitiesChoice;
+        }
+
+        private void FinishCreation()
+        {
+            this.DialogResult = true;
         }
     }
 }

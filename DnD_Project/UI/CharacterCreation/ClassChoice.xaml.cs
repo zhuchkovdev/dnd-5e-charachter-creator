@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DnD_Project.CharacterComponents;
+using DnD_Project.Enums;
 using DnD_Project.UI.CharacterCreation.UC;
 
 namespace DnD_Project.UI.CharacterCreation
@@ -32,24 +33,29 @@ namespace DnD_Project.UI.CharacterCreation
 
         private void RangerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Button_Click(sender, e, Class.Ranger);
         }
 
         private void BarbarianButton_Click(object sender, RoutedEventArgs e)
         {
-            UserControl barbarianUC = new BarbarianUC(ClassEnum.Barbarian);
-            var confirmWin = new ConfirmWin(barbarianUC);
-            if (confirmWin.ShowDialog() == true)
-            {
-                var parentWindow = (CharacterCreationWindow)Window.GetWindow(this);
-                parentWindow.character.Class.SetClass(ClassEnum.Barbarian);
-                ClassSelected?.Invoke();
-            }
+            Button_Click(sender, e, Class.Barbarian);
         }
 
         private void WisardButton_Click(object sender, RoutedEventArgs e)
         {
+            Button_Click(sender, e, Class.Wisard);
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e, Class @class)
+        {
+            UserControl classUC = new ChoiceUC(@class);
+            var confirmWin = new ConfirmWin(classUC);
+            if (confirmWin.ShowDialog() == true)
+            {
+                var parentWindow = (CharacterCreationWindow)Window.GetWindow(this);
+                parentWindow.character.SetClass(@class);
+                ClassSelected?.Invoke();
+            }
         }
     }
 }

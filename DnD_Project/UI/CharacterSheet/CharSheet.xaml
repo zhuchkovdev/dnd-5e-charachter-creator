@@ -19,7 +19,7 @@
                     <ColumnDefinition Width="0.3*"/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0"  FontSize="40" MaxHeight="150" MaxWidth="200" Content="☺"  />
+                <Image Grid.Column="0" MaxHeight="150" MaxWidth="200" x:Name="CharacterImage"/>
                 <Border Grid.Column="1" BorderBrush="DarkGray" BorderThickness="2">
                     <Grid Grid.Column="1" Margin="0.2,0,0,0" Background="Bisque" >
                         <Grid.RowDefinitions>
@@ -41,7 +41,7 @@
                         <TextBlock Grid.Column="0" Grid.Row="0" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Имя персонажа"/>
                         <TextBox Grid.Column="1" Grid.Row="0" x:Name="Class" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" IsReadOnly="True" MinWidth="150" Margin="0 0 0 20"/>
                         <TextBlock Grid.Column="1" Grid.Row="0" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Класс"/>
-                        <TextBox x:Name="Background" Grid.Column="3" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"  MinWidth="150" Text="Soon ©" TextAlignment="Center" Margin="0 0 0 20"/>
+                        <TextBox x:Name="BackgroundStory" Grid.Column="3" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"  MinWidth="150" Text="Soon ©" TextAlignment="Center" Margin="0 0 0 20"/>
                         <TextBlock Grid.Column="3" Grid.Row="0" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Предыстория"/>
                         <TextBox Grid.Column="0" Grid.Row="1" x:Name="Race" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" IsReadOnly="True" MinWidth="150" Margin="0 0 0 20" />
                         
@@ -64,11 +64,9 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Row="1" Grid.Column="0" Content="-" MaxWidth="20" MaxHeight="20" MinWidth="20" HorizontalAlignment="Right" Margin="0 0 2 0"/>
-                                <Button Grid.Row="1" Grid.Column="1" Content="+" MaxWidth="20" MaxHeight="20" MinWidth="20" HorizontalAlignment="Left" Margin="2 0 0 0"/>
                             </Grid>                          
                         </Grid>
-                        <TextBox Grid.Column="2" x:Name="Alignment" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" IsReadOnly="True" MinWidth="150" Margin="0 0 0 20"/>
+                        <TextBox Grid.Column="2" x:Name="Alignment" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" IsReadOnly="True" MinWidth="150" Margin="0 0 0 20" Text="Soon ©"/>
                         <TextBlock Grid.Column="2" Grid.Row="1" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Мировоззрение"/>
                     </Grid>
                 </Border>
@@ -93,7 +91,6 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="GenerateStats" Grid.Column="1" Content="☺" VerticalAlignment="Top" HorizontalAlignment="Right" MaxHeight="20" MinHeight="5" Click="GenerateStats_Click"/>
                     <Grid Grid.Column="0" Grid.Row="0" Background="White" Width="80" Margin="1 5 1 5">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -178,7 +175,7 @@
                         <TextBlock/>
                         <RadioButton x:Name="CharismaSaveThrow" GroupName="Харизма" Content="Харизма"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <!--<StackPanel Grid.Column="1" Orientation="Vertical">
                         <TextBlock Text="Бонус" HorizontalAlignment="Left"/>
                         <TextBlock/>
                         <TextBlock Background="White" Text=" " MaxWidth="30"/>
@@ -192,7 +189,7 @@
                         <TextBlock Background="White" Text=" " MaxWidth="30"/>
                         <TextBlock/>
                         <TextBlock Background="White" Text=" "  MaxWidth="30"/>
-                    </StackPanel>
+                    </StackPanel>-->
                 </Grid>
             </GroupBox>
             <GroupBox Grid.Row="1" Grid.Column="2" Header="Навыки" Background="Honeydew">
@@ -211,19 +208,19 @@
                             <TextBlock Background="White" Text=" 0 "/>
                         </StackPanel>
                         <TextBlock/>
-                        <RadioButton x:Name="AcrobaticsSkill" GroupName="Акробатика" Content="Акробатика"/>
+                        <RadioButton x:Name="Acrobatics" GroupName="Акробатика" Content="Акробатика"/>
                         <TextBlock/>
-                        <RadioButton x:Name="AthleticsSkill" GroupName="Атлетика" Content="Атлетика"/>
+                        <RadioButton x:Name="Athletics" GroupName="Атлетика" Content="Атлетика"/>
                         <TextBlock/>
-                        <RadioButton x:Name="ArcanaSkill" GroupName="Магия" Content="Магия"/>
+                        <RadioButton x:Name="Arcana" GroupName="Магия" Content="Магия"/>
                         <TextBlock/>
-                        <RadioButton x:Name="DeceptionSkill" GroupName="Обман" Content="Обман"/>
+                        <RadioButton x:Name="Deception" GroupName="Обман" Content="Обман"/>
                         <TextBlock/>
-                        <RadioButton x:Name="HistorySkill" GroupName="История" Content="История"/>
+                        <RadioButton x:Name="History" GroupName="История" Content="История"/>
                         <TextBlock/>
-                        <RadioButton x:Name="InsightSkill" GroupName="Проницательность" Content="Проницательность"/>
+                        <RadioButton x:Name="Insight" GroupName="Проницательность" Content="Проницательность"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <!--<StackPanel Grid.Column="1" Orientation="Vertical">
                         <TextBlock Text="Бонус" HorizontalAlignment="Center"/>
                         <TextBlock/>
                         <TextBlock Background="White" Text=" " MaxWidth="30"/>
@@ -237,23 +234,23 @@
                         <TextBlock Background="White" Text=" " MaxWidth="30"/>
                         <TextBlock/>
                         <TextBlock Background="White" Text=" " MaxWidth="30"/>
-                    </StackPanel>
+                    </StackPanel>-->
                     <StackPanel Grid.Column="2"  Orientation="Vertical">
                         <TextBlock/>
                         <TextBlock/>
-                        <RadioButton x:Name="IntimidationSkill" GroupName="Запугивание" Content="Запугивание"/>
+                        <RadioButton x:Name="Intimidation" GroupName="Запугивание" Content="Запугивание"/>
                         <TextBlock/>
-                        <RadioButton x:Name="InvestigationSkill" GroupName="Расследование" Content="Расследование"/>
+                        <RadioButton x:Name="Investigation" GroupName="Расследование" Content="Расследование"/>
                         <TextBlock/>
-                        <RadioButton x:Name="MedicineSkill" GroupName="Медицина" Content="Медицина"/>
+                        <RadioButton x:Name="Medicine" GroupName="Медицина" Content="Медицина"/>
                         <TextBlock/>
-                        <RadioButton x:Name="NatureSkill" GroupName="Природа" Content="Природа"/>
+                        <RadioButton x:Name="Nature" GroupName="Природа" Content="Природа"/>
                         <TextBlock/>
                         <RadioButton x:Name="PerceptionSkill" GroupName="Восприятие" Content="Восприятие"/>
                         <TextBlock/>
-                        <RadioButton x:Name="PerformanceSkill" GroupName="Выступление" Content="Выступление"/>
+                        <RadioButton x:Name="Performance" GroupName="Выступление" Content="Выступление"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3" Orientation="Vertical">
+                    <!--<StackPanel Grid.Column="3" Orientation="Vertical">
                         <TextBlock Text="Бонус" HorizontalAlignment="Center"/>
                         <TextBlock/>
                         <TextBlock Background="White" Text=" " MaxWidth="30"/>
@@ -267,23 +264,23 @@
                         <TextBlock Background="White" Text=" " MaxWidth="30"/>
                         <TextBlock/>
                         <TextBlock Background="White" Text=" " MaxWidth="30"/>
-                    </StackPanel>
+                    </StackPanel>-->
                     <StackPanel Grid.Column="4"  Orientation="Vertical">
                         <TextBlock/>
                         <TextBlock/>
-                        <RadioButton x:Name="PersuasionSkill" GroupName="Убеждение" Content="Убеждение"/>
+                        <RadioButton x:Name="Persuasion" GroupName="Убеждение" Content="Убеждение"/>
                         <TextBlock/>
-                        <RadioButton x:Name="ReligionSkill" GroupName="Религия" Content="Религия"/>
+                        <RadioButton x:Name="Religion" GroupName="Религия" Content="Религия"/>
                         <TextBlock/>
-                        <RadioButton x:Name="SleightOfHandSkill" GroupName="Ловкость рук" Content="Ловкость рук"/>
+                        <RadioButton x:Name="SleightOfHand" GroupName="Ловкость рук" Content="Ловкость рук"/>
                         <TextBlock/>
-                        <RadioButton x:Name="StealthSkill" GroupName="Скрытность" Content="Скрытность"/>
+                        <RadioButton x:Name="Stealth" GroupName="Скрытность" Content="Скрытность"/>
                         <TextBlock/>
-                        <RadioButton x:Name="SurvivalSkill" GroupName="Выживание" Content="Выживание"/>
+                        <RadioButton x:Name="Survival" GroupName="Выживание" Content="Выживание"/>
                         <TextBlock/>
-                        <RadioButton x:Name="AnimalHandlingSkill" GroupName="Общение с животными" Content="Общение с животными"/>
+                        <RadioButton x:Name="AnimalHandling" GroupName="Общение с животными" Content="Общение с животными"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="5" Orientation="Vertical">
+                    <!--<StackPanel Grid.Column="5" Orientation="Vertical">
                         <TextBlock Text="Бонус" HorizontalAlignment="Center"/>
                         <TextBlock/>
                         <TextBlock Background="White" Text=" " MaxWidth="30"/>
@@ -297,7 +294,7 @@
                         <TextBlock Background="White" Text=" " MaxWidth="30"/>
                         <TextBlock/>
                         <TextBlock Background="White" Text=" " MaxWidth="30"/>
-                    </StackPanel>
+                    </StackPanel>-->
                 </Grid>
 
             </GroupBox>
@@ -309,7 +306,7 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <GroupBox Grid.Column="0"  Background="Lavender" Header="">
+            <!--<GroupBox Grid.Column="0"  Background="Lavender" Header="">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <StackPanel Grid.Column="0">
                         <Grid Background="White" MaxHeight="50" MinHeight="50" MinWidth="50" MaxWidth="50" VerticalAlignment="Top" Margin="10">
@@ -330,9 +327,9 @@
                         <TextBlock Text="Скорость" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </StackPanel>
-            </GroupBox>
+            </GroupBox>-->
 
-            <GroupBox Grid.Column="1" Background="Lavender" Header="Очки здоровья">
+            <GroupBox Grid.Column="0" Background="Lavender" Header="Очки здоровья">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <StackPanel Grid.Column="0">
                         <Grid Background="White" MaxHeight="50" MinHeight="50" MaxWidth="50" MinWidth="50" VerticalAlignment="Top" Margin="10">
@@ -354,23 +351,23 @@
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Grid.Column="2" Background="Lavender" Header="Кубы здоровья">
+            <GroupBox Grid.Column="1" Background="Lavender" Header="Кубы здоровья">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <StackPanel Grid.Column="0">
                         <Grid Background="White" MaxHeight="50" MinHeight="50" MaxWidth="50" MinWidth="50" VerticalAlignment="Top" Margin="10">
-                            <TextBlock Text="0" x:Name="CurrentHitDice" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="0" x:Name="HitDiceType" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
-                        <TextBlock Text="Текущие" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Тип" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1" >
                         <Grid Background="White" MaxHeight="50" MinHeight="50" MaxWidth="50" MinWidth="50" VerticalAlignment="Top" Margin="10">
-                            <TextBlock Text="0" x:Name="MaxHitDice" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="0" x:Name="HitDiceAmount" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
-                        <TextBlock Text="Максимальные" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Количество" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Grid.Column="3" Header="Спасброски от смерти" Background="Lavender">
+            <GroupBox Grid.Column="2" Header="Спасброски от смерти" Background="Lavender">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>

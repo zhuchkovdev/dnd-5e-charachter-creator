@@ -15,12 +15,12 @@
         <StackPanel Grid.Row="1">
             <Button x:Name="HumanButton" Content="Человек" FontSize="30" MaxWidth="400" Margin="0 20 0 0"  Click="HumanButton_Click"/>
             <TextBlock MaxWidth="400" Background="LightGray" TextAlignment="Center" FontSize="30" Text="Дварф:" Margin="0 20 0 0" />
-            <Button x:Name="HillDwarfButton" Content="Холмовой" FontSize="30" MaxWidth="300" Margin="0 20 0 0" Click="HillDwarfButton_Click" IsEnabled="False"/>
-            <Button x:Name="MountainDwarfButton" Content="Горный" FontSize="30" MaxWidth="300" Margin="0 20 0 0" Click="MountainDwarfButton_Click" IsEnabled="False"/>
+            <Button x:Name="HillDwarfButton" Content="Холмовой" FontSize="30" MaxWidth="300" Margin="0 20 0 0" Click="HillDwarfButton_Click"/>
+            <Button x:Name="MountainDwarfButton" Content="Горный" FontSize="30" MaxWidth="300" Margin="0 20 0 0" Click="MountainDwarfButton_Click"/>
             <TextBlock MaxWidth="400" Background="LightGray" TextAlignment="Center" FontSize="30" Text="Эльф:" Margin="0 20 0 0" />
-            <Button x:Name="HighElfButton" Content="Высший" FontSize="30" MaxWidth="300" Margin="0 20 0 0" Click="HighElfButton_Click" IsEnabled="False"/>
-            <Button x:Name="WoodElfButton" Content="Лесной" FontSize="30" MaxWidth="300" Margin="0 20 0 0" Click="WoodElfButton_Click" IsEnabled="False"/>
-            <Button x:Name="DrowButton" Content="Темный (Дроу)" FontSize="30" MaxWidth="300" Margin="0 20 0 0" Click="DrowButton_Click" IsEnabled="False"/>
+            <Button x:Name="HighElfButton" Content="Высший" FontSize="30" MaxWidth="300" Margin="0 20 0 0" Click="HighElfButton_Click"/>
+            <Button x:Name="WoodElfButton" Content="Лесной" FontSize="30" MaxWidth="300" Margin="0 20 0 0" Click="WoodElfButton_Click"/>
+            <Button x:Name="DrowButton" Content="Темный (Дроу)" FontSize="30" MaxWidth="300" Margin="0 20 0 0" Click="DrowButton_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

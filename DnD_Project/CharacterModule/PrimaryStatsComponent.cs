@@ -3,21 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DnD_Project.Enums;
 
 namespace DnD_Project.CharacterComponents
 {
-    public enum StatsEnum
-    {
-        Strength,
-        Dexterity,
-        Constitution,
-        Intelligence,
-        Wisdom,
-        Charisma
-    }
     public class PrimaryStatsComponent
     {
-        private Dictionary<StatsEnum, int> Stats { get; set; }
+        public Dictionary<StatsEnum, int> Stats { get; set; }
         public PrimaryStatsComponent()
         {
             Stats = new Dictionary<StatsEnum, int>();
@@ -40,7 +32,6 @@ namespace DnD_Project.CharacterComponents
             {
                 Stats[stat] = value;
             }
-            StatsChanged?.Invoke(this);
         }
         
         internal int Strength
@@ -73,36 +64,8 @@ namespace DnD_Project.CharacterComponents
             get { return Stats[StatsEnum.Charisma]; }
             set { SetStat(StatsEnum.Charisma, value); }
         }
-        
-        internal int GetStatModifier(StatsEnum stat)
-        {
-            double statScore = Stats[stat];
-            return (int)Math.Floor((statScore - 10) / 2);
-        }
 
-        internal void Generate()
-        {
-            var rand = new Random();
-            int GenStat()
-            {
-                int[] throws = new int[4];
-                for (int j = 0; j < 4; j++)
-                {
-                    throws[j] = rand.Next(1, 7);
-                }
-                Array.Sort(throws);
-                return (throws[1] + throws[2] + throws[3]);
-            }
-
-            for (StatsEnum i = StatsEnum.Strength; i <= StatsEnum.Charisma; i++)
-            {
-                Stats[i] = GenStat();
-            }
-
-            StatsChanged?.Invoke(this);
-        }
-
-        public void UpdateStats(RaceEnum race)
+        public void UpdateRaceStats(RaceEnum race)
         {
             if ((race == RaceEnum.HillDwarf) || (race == RaceEnum.MountainDwarf))
             {
@@ -116,7 +79,7 @@ namespace DnD_Project.CharacterComponents
                     Wisdom += 1;
                 }
             }
-            if ((race == RaceEnum.HighElf) || (race == RaceEnum.WoodElf) || (race == RaceEnum.DarkElf))
+            if ((race == RaceEnum.HighElf) || (race == RaceEnum.WoodElf) || (race == RaceEnum.Drow))
             {
                 Dexterity += 2;
                 if(race == RaceEnum.HighElf)
@@ -127,21 +90,9 @@ namespace DnD_Project.CharacterComponents
                 {
                     Wisdom += 1;
                 }
-                if(race == RaceEnum.DarkElf)
+                if(race == RaceEnum.Drow)
                 {
                     Charisma += 1;
-                }
-            }
-            if ((race == RaceEnum.LightfootHalfling) || (race == RaceEnum.StoutHalfling))
-            {
-                Dexterity += 2;
-                if(race == RaceEnum.LightfootHalfling)
-                {
-                    Charisma += 1;
-                }
-                if(race == RaceEnum.StoutHalfling)
-                {
-                    Constitution += 1;
                 }
             }
             if (race == RaceEnum.Human)
@@ -153,41 +104,14 @@ namespace DnD_Project.CharacterComponents
                 Wisdom += 1;
                 Charisma += 1;
             }
-            if (race == RaceEnum.Dragonborn)
-            {
-                Strength += 2;
-                Charisma += 1;
-            }
-            if ((race == RaceEnum.ForestGnome) || (race == RaceEnum.RockGnome))
-            {
-                Intelligence += 2;
-                if(race == RaceEnum.ForestGnome)
-                {
-                    Dexterity += 1;
-                }
-                if(race == RaceEnum.RockGnome)
-                {
-                    Constitution += 1;
-                }
-            }
-            if (race == RaceEnum.HalfElf)
-            {
-                Charisma += 2;
-                //Choice stat
-            }
-            if (race == RaceEnum.HalfOrk)
-            {
-                Strength += 2;
-                Constitution += 1;
-            }
-            if (race == RaceEnum.Tiefling)
-            {
-                Intelligence += 1;
-                Charisma += 2;
-            }
         }
 
-        public delegate void PrimaryStatsEventHandler(PrimaryStatsComponent newStats);
-        public event PrimaryStatsEventHandler StatsChanged;
+        public void AddStats(int[] stats)
+        {
+            for (var i = StatsEnum.Strength; i <= StatsEnum.Charisma; i++)
+            {
+                Stats[i] += stats[(int)i];
+            }
+        }
     }
 }

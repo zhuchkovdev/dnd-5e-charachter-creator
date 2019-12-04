@@ -44,7 +44,13 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
@@ -55,6 +61,29 @@
     </Reference>
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.112.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.7.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.7.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,19 +103,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CharacterComponents\AlignmentComponent.cs" />
-    <Compile Include="CharacterComponents\ClassComponent.cs" />
-    <Compile Include="CharacterComponents\DeathSavesComponent.cs" />
-    <Compile Include="CharacterComponents\HitPointsComponent.cs" />
-    <Compile Include="CharacterComponents\IDComponent.cs" />
-    <Compile Include="CharacterComponents\NameComponent.cs" />
-    <Compile Include="CharacterComponents\SavingThrowsComponent.cs" />
-    <Compile Include="CharacterComponents\SecondaryStatsComponent.cs" />
-    <Compile Include="CharacterComponents\SkillsComponent.cs" />
+    <Compile Include="CharacterModule\CharacterData.cs" />
+    <Compile Include="CharacterModule\ClassComponent.cs" />
+    <Compile Include="CharacterModule\HitPointsComponent.cs" />
+    <Compile Include="CharacterModule\RaceComponent.cs" />
+    <Compile Include="CharacterModule\SavingThrowsComponent.cs" />
     <Compile Include="DAL\DBController.cs" />
-    <Compile Include="CharacterComponents\LevelComponent.cs" />
-    <Compile Include="CharacterComponents\RaceComponent.cs" />
-    <Compile Include="CharacterComponents\PrimaryStatsComponent.cs" />
+    <Compile Include="CharacterModule\PrimaryStatsComponent.cs" />
     <Page Include="UI\CharacterCreation\AbilitiesChoice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,11 +126,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\CharacterCreation\UC\BarbarianUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\CharacterCreation\UC\HumanUC.xaml">
+    <Page Include="UI\CharacterCreation\UC\ChoiceUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,7 +151,11 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="DAL\User.cs" />
+    <Compile Include="Enums\ClassEnum.cs" />
     <Compile Include="Enums\RaceEnum.cs" />
+    <Compile Include="Enums\Skill.cs" />
+    <Compile Include="Enums\Stat.cs" />
+    <Compile Include="Enums\StatsEnum.cs" />
     <Compile Include="UI\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -149,11 +172,8 @@
     <Compile Include="UI\CharacterCreation\RaceChoice.xaml.cs">
       <DependentUpon>RaceChoice.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\CharacterCreation\UC\BarbarianUC.xaml.cs">
-      <DependentUpon>BarbarianUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CharacterCreation\UC\HumanUC.xaml.cs">
-      <DependentUpon>HumanUC.xaml</DependentUpon>
+    <Compile Include="UI\CharacterCreation\UC\ChoiceUC.xaml.cs">
+      <DependentUpon>ChoiceUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Auth\AuthWindow.xaml.cs">
       <DependentUpon>AuthWindow.xaml</DependentUpon>
@@ -167,7 +187,7 @@
     <Compile Include="UI\CharacterSheet\CharSheet.xaml.cs">
       <DependentUpon>CharSheet.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Character\Character.cs" />
+    <Compile Include="CharacterModule\Character.cs" />
     <Compile Include="UI\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

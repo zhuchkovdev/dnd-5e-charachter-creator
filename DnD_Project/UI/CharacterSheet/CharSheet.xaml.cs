@@ -24,97 +24,57 @@ namespace DnD_Project
         private Character _character { get; set; }
         public CharSheet(Character character)
         {
-            _character = character;
             InitializeComponent();
-            CharacterName.Text = _character.Name.ToString();
-            Race.Text = _character.Race.ToString();
-            Class.Text = _character.Class.ToString();
-            Level.Text = _character.Level.ToString();
-            Alignment.Text = _character.Alignment.ToString();
-            Speed.Text = _character.SecondaryStats.Speed.ToString();
-            Initiative.Text = _character.SecondaryStats.Initiative.ToString();
-            CurrentHitDice.Text = _character.HP.HitDiceAmount.ToString();
-            MaxHitDice.Text = _character.HP.HitDiceAmount.ToString();
-            UpdateStats();
-            UpdateSavingThrows();
-            UpdateSkills();
-            UpdateHP();
 
-        }
-        public void UpdateHP()
-        {
-            CurrentHP.Text = _character.HP.CurrentHP.ToString();
-            MaxHP.Text = _character.HP.MaximumHP.ToString();
-            TempHP.Text = _character.HP.TemporaryHP.ToString();
-        }
-        
-        private void UpdateStats()
-        {
-            Strength.Text = _character.PrimaryStats.Strength.ToString();
-            Dexterity.Text = _character.PrimaryStats.Dexterity.ToString();
-            Constitution.Text = _character.PrimaryStats.Constitution.ToString();
-            Intelligence.Text = _character.PrimaryStats.Intelligence.ToString();
-            Wisdom.Text = _character.PrimaryStats.Wisdom.ToString();
-            Charisma.Text = _character.PrimaryStats.Charisma.ToString();
-            Perception.Text = _character.SecondaryStats.Perception.ToString();
-        }
+            CharacterName.Text = character.Name;
+            Class.Text = character.Class;
+            Race.Text = character.Race;
+            Level.Text = character.Level.ToString();
 
-        private void UpdateSkills()
-        {
-            AcrobaticsSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Acrobatics);
-            ArcanaSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Arcana);
-            AnimalHandlingSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.AnimalHandling);
-            AthleticsSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Athletics);
-            DeceptionSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Deception);
-            HistorySkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.History);
-            InsightSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Insight);
-            IntimidationSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Intimidation);
-            InvestigationSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Investigation);
-            MedicineSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Medicine);
-            NatureSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Nature);
-            PerceptionSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Perception);
-            PerformanceSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Performance);
-            PersuasionSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Persuasion);
-            ReligionSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Religion);
-            SleightOfHandSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.SleightOfHand);
-            StealthSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Stealth);
-            SurvivalSkill.IsChecked = _character.Skills.GetSkill(CharacterComponents.SkillsEnum.Survival);
-        }
+            Strength.Text = character.Stats.Strength.ToString();
+            Dexterity.Text = character.Stats.Dexterity.ToString();
+            Constitution.Text = character.Stats.Constitution.ToString();
+            Intelligence.Text = character.Stats.Intelligence.ToString();
+            Wisdom.Text = character.Stats.Wisdom.ToString();
+            Charisma.Text = character.Stats.Charisma.ToString();
 
-        private void UpdateSavingThrows()
-        {
-            StrengthSaveThrow.IsChecked = _character.SavingThrows.GetSavingThrow(CharacterComponents.StatsEnum.Strength);
-            DexteritySaveThrow.IsChecked = _character.SavingThrows.GetSavingThrow(CharacterComponents.StatsEnum.Dexterity);
-            ConstitutionSaveThrow.IsChecked = _character.SavingThrows.GetSavingThrow(CharacterComponents.StatsEnum.Constitution);
-            IntelligenceSaveThrow.IsChecked = _character.SavingThrows.GetSavingThrow(CharacterComponents.StatsEnum.Intelligence);
-            WisdomSaveThrow.IsChecked = _character.SavingThrows.GetSavingThrow(CharacterComponents.StatsEnum.Wisdom);
-            WisdomSaveThrow.IsChecked = _character.SavingThrows.GetSavingThrow(CharacterComponents.StatsEnum.Charisma);
+            Perception.Text = "10";
 
-            int fails = _character.DeathSaves.Fails;
-            if(fails > 0)
-            {
-                FirstDeathThrow.IsChecked = true;
-            }
-            if(fails == 2)
-            {
-                SecondDeathThrow.IsChecked = true;
-            }
+            CurrentHP.Text = character.HP.MaxHP.ToString();
+            MaxHP.Text = character.HP.MaxHP.ToString();
+            TempHP.Text = "0";
 
-            int saves = _character.DeathSaves.Successes;
-            if (saves > 0)
-            {
-                FirstLifeThrow.IsChecked = true;
-            }
-            if (saves == 2)
-            {
-                SecondLifeThrow.IsChecked = true;
-            }
-        }
+            HitDiceAmount.Text = "1";
+            HitDiceType.Text = character.HP.Dice;
 
-        private void GenerateStats_Click(object sender, RoutedEventArgs e)
-        {
-            _character.PrimaryStats.Generate();
-            UpdateStats();
+
+            StrengthSaveThrow.IsChecked = character.SavingThrows.SavingThrows[Enums.Stat.Str];
+            DexteritySaveThrow.IsChecked = character.SavingThrows.SavingThrows[Enums.Stat.Dex];
+            ConstitutionSaveThrow.IsChecked = character.SavingThrows.SavingThrows[Enums.Stat.Con];
+            IntelligenceSaveThrow.IsChecked = character.SavingThrows.SavingThrows[Enums.Stat.Int];
+            WisdomSaveThrow.IsChecked = character.SavingThrows.SavingThrows[Enums.Stat.Wis];
+            CharismaSaveThrow.IsChecked = character.SavingThrows.SavingThrows[Enums.Stat.Cha];
+
+            Acrobatics.IsChecked = character.Skills[Enums.Skill.Acrobatics];
+            AnimalHandling.IsChecked = character.Skills[Enums.Skill.AnimalHandling];
+            Arcana.IsChecked = character.Skills[Enums.Skill.Arcana];
+            Athletics.IsChecked = character.Skills[Enums.Skill.Athletics];
+            Deception.IsChecked = character.Skills[Enums.Skill.Deception];
+            History.IsChecked = character.Skills[Enums.Skill.History];
+            Insight.IsChecked = character.Skills[Enums.Skill.Insight];
+            Intimidation.IsChecked = character.Skills[Enums.Skill.Intimidation];
+            Investigation.IsChecked = character.Skills[Enums.Skill.Investigation];
+            Medicine.IsChecked = character.Skills[Enums.Skill.Medicine];
+            Nature.IsChecked = character.Skills[Enums.Skill.Nature];
+            PerceptionSkill.IsChecked = character.Skills[Enums.Skill.Perception];
+            Performance.IsChecked = character.Skills[Enums.Skill.Performance];
+            Persuasion.IsChecked = character.Skills[Enums.Skill.Persuasion];
+            Religion.IsChecked = character.Skills[Enums.Skill.Religion];
+            SleightOfHand.IsChecked = character.Skills[Enums.Skill.SleightOfHand];
+            Stealth.IsChecked = character.Skills[Enums.Skill.Stealth];
+            Survival.IsChecked = character.Skills[Enums.Skill.Survival];
+
+            CharacterImage.Source = new BitmapImage(new Uri(character.ImageSource));
         }
     }
 }

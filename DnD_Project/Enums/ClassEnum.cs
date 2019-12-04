@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace DnD_Project.Enums
 {
-    public enum RaceEnum
+    public enum Class
     {
-        Human,
-        HillDwarf,
-        MountainDwarf,
-        HighElf,
-        WoodElf,
-        Drow
+        Barbarian,
+        Ranger,
+        Wisard
     }
 }

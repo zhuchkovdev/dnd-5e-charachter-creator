@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DnD_Project.Enums
 {
-    public enum RaceEnum
+    public enum StatsEnum
     {
-        Human,
-        HillDwarf,
-        MountainDwarf,
-        HighElf,
-        WoodElf,
-        Drow
+        Strength,
+        Dexterity,
+        Constitution,
+        Intelligence,
+        Wisdom,
+        Charisma
     }
 }

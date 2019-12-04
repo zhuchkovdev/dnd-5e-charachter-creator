@@ -42,27 +42,50 @@ namespace DnD_Project
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+            Character newCharacter = new Character();
+
             var nameWindow = new CharacterNameWindow();
             if (nameWindow.ShowDialog() == true)
             {
-                //var Tab = (RadioButton)this.TryFindResource("TabButton");
-                //Tab.Content = nameWindow.CharacterName;
-                //CharTabs.Children.Add(Tab);
+                var Tab = (RadioButton)this.TryFindResource("TabButton");
+                Tab.Content = nameWindow.CharacterName;
+                CharTabs.Children.Add(Tab);
 
                 this.Hide();
                 var creationWindow = new CharacterCreationWindow();
                 if(creationWindow.ShowDialog() == true)
                 {
+                    newCharacter = creationWindow.character;
 
-                }   
+                    int newCharacterID;
+                    db.CreateBlankCharacter(currentUser, nameWindow.CharacterName, out newCharacterID);
+                    characterIDs.Add(newCharacterID);
+
+                    //--------------------------------------------
+                    string test =
+                        newCharacter.Stats.Strength.ToString() + "," +
+                        newCharacter.Stats.Dexterity.ToString() + "," +
+                        newCharacter.Stats.Constitution.ToString() + "," +
+                        newCharacter.Stats.Intelligence.ToString() + "," +
+                        newCharacter.Stats.Wisdom.ToString() + "," +
+                        newCharacter.Stats.Charisma.ToString();
+
+                    MessageBox.Show(test);
+                    //--------------------------------------------
+                    newCharacter.ID = newCharacterID;
+                    newCharacter.Name = nameWindow.CharacterName;
+                    db.SaveCharacter(new CharacterData(newCharacter));
+
+                    this.Show();
+
+                    MessageBox.Show(newCharacter.Class);
+
+                }
                 else
                 {
                     this.Close();
                 }
             }
-            //int newCharacterID;
-            //db.CreateBlankCharacter(currentUser, nameWindow.CharacterName, out newCharacterID);
-            //characterIDs.Add(newCharacterID);
         }
 
         private void Tab_Checked(object sender, RoutedEventArgs e)

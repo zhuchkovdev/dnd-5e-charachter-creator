@@ -17,6 +17,6 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="ConfirmButton" Grid.Row="1" Grid.Column="0" Content="Подтвердить" Click="ConfirmButton_Click"/>
         <Button x:Name="CancelButton" Grid.Row="1" Grid.Column="1" Content="Отмена" Click="CancelButton_Click"/>
-        <UserControl x:Name="Content" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <UserControl x:Name="UC" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DnD_Project.Enums;
-using DnD_Project.UI.CharacterCreation.Races;
+using DnD_Project.UI.CharacterCreation.UC;
 
 namespace DnD_Project.UI.CharacterCreation
 {
@@ -30,41 +30,47 @@ namespace DnD_Project.UI.CharacterCreation
         public delegate void ChoiceHanldler();
         public event ChoiceHanldler RaceSelected;
 
-        private void HumanButton_Click(object sender, RoutedEventArgs e)
+        private void ButtonClick(object sender, RoutedEventArgs e, RaceEnum race)
         {
-            UserControl humanUC = new HumanUC(Race.Human);
-            var confirmWin = new ConfirmWin(humanUC);
-            if(confirmWin.ShowDialog() == true)
+            UserControl raceUC = new ChoiceUC(race);
+            var confirmWin = new ConfirmWin(raceUC);
+            if (confirmWin.ShowDialog() == true)
             {
                 var parentWindow = (CharacterCreationWindow)Window.GetWindow(this);
-                parentWindow.character.Race.SetRace(CharacterComponents.RaceEnum.Human);
+                parentWindow.character.SetRace(race);
+                parentWindow.character.ImageSource = String.Format(@"D:\Projects\DnD_Project\DnD_Project\{0}Icon.png", Enum.GetName(typeof(RaceEnum), race));
                 RaceSelected?.Invoke();
             }
+        }
+        
+        private void HumanButton_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonClick(sender, e, RaceEnum.Human);
         }
 
         private void HillDwarfButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ButtonClick(sender, e, RaceEnum.HillDwarf);
         }
 
         private void MountainDwarfButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ButtonClick(sender, e, RaceEnum.MountainDwarf);
         }
 
         private void HighElfButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ButtonClick(sender, e, RaceEnum.HighElf);
         }
 
         private void WoodElfButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ButtonClick(sender, e, RaceEnum.WoodElf);
         }
 
         private void DrowButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ButtonClick(sender, e, RaceEnum.Drow);
         }
     }
 }
