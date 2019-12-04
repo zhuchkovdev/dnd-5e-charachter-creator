@@ -32,11 +32,15 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <StackPanel x:Name="CharTabs" Grid.Row="0" >
 
                         </StackPanel>
                         <Button Content="+" x:Name="Add" Grid.Row="1" Margin="10" Height="40" Width="40" Click="Add_Click"/>
+                        <Button x:Name="RemoveButton" Grid.Row="2" Click="Remove_Click" HorizontalAlignment="Center" Margin="10" Padding="5" IsEnabled="False">
+                            <TextBlock Text="Удалить текущего персонажа" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Button>
                     </Grid>
 
                 </ScrollViewer>

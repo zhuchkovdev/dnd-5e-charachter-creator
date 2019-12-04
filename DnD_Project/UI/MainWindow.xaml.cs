@@ -24,6 +24,7 @@ namespace DnD_Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        RadioButton currentTab;
         DBController db;
         User currentUser;
         List<int> characterIDs;
@@ -60,25 +61,11 @@ namespace DnD_Project
                     int newCharacterID;
                     db.CreateBlankCharacter(currentUser, nameWindow.CharacterName, out newCharacterID);
                     characterIDs.Add(newCharacterID);
-
-                    //--------------------------------------------
-                    string test =
-                        newCharacter.Stats.Strength.ToString() + "," +
-                        newCharacter.Stats.Dexterity.ToString() + "," +
-                        newCharacter.Stats.Constitution.ToString() + "," +
-                        newCharacter.Stats.Intelligence.ToString() + "," +
-                        newCharacter.Stats.Wisdom.ToString() + "," +
-                        newCharacter.Stats.Charisma.ToString();
-
-                    MessageBox.Show(test);
-                    //--------------------------------------------
                     newCharacter.ID = newCharacterID;
                     newCharacter.Name = nameWindow.CharacterName;
                     db.SaveCharacter(new CharacterData(newCharacter));
 
                     this.Show();
-
-                    MessageBox.Show(newCharacter.Class);
 
                 }
                 else
@@ -101,6 +88,9 @@ namespace DnD_Project
             currentCharacter = db.GetCharacter(currentCharID);
             UserControl CharacterPanel = new CharSheet(currentCharacter);
             CharPanel.Content = CharacterPanel;
+
+            currentTab = (RadioButton)sender;
+            RemoveButton.IsEnabled = true;
         }
 
         public void Authorization()
@@ -131,6 +121,28 @@ namespace DnD_Project
                 Tab.Content = charName;
                 CharTabs.Children.Add(Tab);
             }
+        }
+
+        void DeleteCharacter(Character character)
+        {
+            CharTabs.Children.Remove(currentTab);
+
+            for (int i = 0; i < CharTabs.Children.Count; i++)
+            {
+                if (currentTab == (RadioButton)CharTabs.Children[i])
+                {
+                    characterIDs.Remove(i);
+                }
+            }
+
+            db.DeleteCharacter(character);
+
+            CharPanel.Content = null;
+        }
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteCharacter(currentCharacter);
         }
     }
 }

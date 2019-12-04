@@ -135,6 +135,23 @@ namespace DnD_Project.DAL
             }
         }
 
+        internal void DeleteCharacter(Character character)
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                var sqlExpression = "DELETE FROM Characters WHERE ID=@id";
+                var command = new SQLiteCommand(sqlExpression, connection);
+                command.Parameters.AddWithValue("@id", character.ID);
+                command.ExecuteNonQuery();
+
+                sqlExpression = "DELETE FROM UserChars WHERE CharID=@id";
+                command = new SQLiteCommand(sqlExpression, connection);
+                command.Parameters.AddWithValue("@id", character.ID);
+                command.ExecuteNonQuery();
+            }
+        }
+
         public string GetCharacterName(int charID)
         {
             using (var connection = new SQLiteConnection(connectionString))

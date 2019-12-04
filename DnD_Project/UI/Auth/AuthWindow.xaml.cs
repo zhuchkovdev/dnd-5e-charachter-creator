@@ -32,6 +32,7 @@ namespace DnD_Project.UI
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             ErrorText.Text = String.Empty;
+
             CurrentUser = new User
             {
                 Password = PasswordBox.Password,
@@ -53,22 +54,28 @@ namespace DnD_Project.UI
         {
             ErrorText.Text = String.Empty;
 
-            CurrentUser = new User
+            if (!String.IsNullOrEmpty(PasswordBox.Password) && !(String.IsNullOrEmpty(UsernameBox.Text)))
             {
-                Password = PasswordBox.Password,
-                Login = UsernameBox.Text
-            };
+                CurrentUser = new User
+                {
+                    Password = PasswordBox.Password,
+                    Login = UsernameBox.Text
+                };
 
-            if (db.UserExists(CurrentUser))
-            {
-                ErrorText.Text = "Такая учетная запись уже существует";
+                if (db.UserExists(CurrentUser))
+                {
+                    ErrorText.Text = "Такая учетная запись уже существует";
+                }
+                else
+                {
+                    db.CreateUser(CurrentUser);
+                    this.DialogResult = true;
+                }
             }
             else
             {
-                db.CreateUser(CurrentUser);
-                this.DialogResult = true;
+                ErrorText.Text = "Логин и пароль должны быть непустыми";
             }
-            
         }
     }
 }
